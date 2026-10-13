@@ -24,7 +24,7 @@
 
     @font-face {
       font-family: 'Sansilk';
-      src: url('font/font/Sansilk-p71dD.ttf') format('truetype');
+      src: url('font/font/Sansilk-x32eO.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
     }
@@ -32,12 +32,6 @@
     @font-face {
       font-family: 'Foglihtenno07';
       src: url('font/font/Foglihtenno07calt-WpzEA.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Sansilk';
-      src: url('font/font/Sansilk-x32eO.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
     }
@@ -485,7 +479,9 @@
 
     .playing {
       animation: spin 4s linear infinite;
-      /* =========================================================
+    }
+
+    /* =========================================================
         7. STYLES SEGMEN 3: COUPLE / MEMPELAI (ARCH CARD)
         ========================================================= */
     #section-couple {
@@ -500,7 +496,6 @@
       padding: 80px 16px;
     }
 
-    /* Kotak Card Arch Full Kiri-Kanan dengan White Glassy Blurry */
     .arch-card {
       position: relative;
       width: 100%;
@@ -509,14 +504,13 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.9);
-      border-radius: 250px 250px 30px 30px; /* Bentuk Arch / Setengah Lingkaran di atas */
+      border-radius: 250px 250px 30px 30px;
       padding: 60px 24px 70px 24px;
       text-align: center;
       color: #111111;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     }
 
-    /* Judul Arin & Dito di dalam Card */
     .sec3-title-couple {
       font-family: 'Sansilk', sans-serif;
       font-size: 22px;
@@ -535,7 +529,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Teks Pembuka / Mukaddimah */
     .sec3-opening-text {
       font-family: 'Lato', sans-serif;
       font-weight: 400;
@@ -546,7 +539,6 @@
       margin-bottom: 45px;
     }
 
-    /* Nama Mempelai (Juliette Font) */
     .sec3-bride-name, .sec3-groom-name {
       font-family: 'Juliette', cursive, sans-serif;
       font-size: 32px;
@@ -554,7 +546,6 @@
       margin-bottom: 8px;
     }
 
-    /* Info Orang Tua */
     .sec3-parents {
       font-family: 'Lato', sans-serif;
       font-weight: 400;
@@ -564,7 +555,6 @@
       line-height: 1.5;
     }
 
-    /* Tombol Instagram Glassy Grey */
     .ig-btn {
       display: inline-flex;
       align-items: center;
@@ -595,7 +585,6 @@
       font-size: 12px;
     }
 
-    /* Divider "D E N G A N" */
     .sec3-divider {
       font-family: 'Lato', sans-serif;
       font-weight: 700;
@@ -681,7 +670,9 @@
           </div>
         </div>
       </section>
-        <!-- [SECTION 3: COUPLE / MEMPELAI SECTION] -->
+
+      <!-- ========================================== -->
+      <!-- [SECTION 3: COUPLE / MEMPELAI SECTION] -->
       <!-- ========================================== -->
       <section id="section-couple">
         <div class="arch-card">
@@ -789,39 +780,4 @@
         }
     }
 
-    // Logika Scroll: Sembunyikan saat digulir, munculkan kembali saat berhenti
-    let scrollTimeout;
-    window.addEventListener('scroll', function() {
-        container.classList.add("hidden");
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(function() {
-            container.classList.remove("hidden");
-        }, 300);
-    });
-
-    // Countdown Timer Logic (12.12.2030)
-    const targetDate = new Date("December 12, 2030 00:00:00").getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerText = String(days).padStart(2, '0');
-        document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-        document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-        document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
-      }
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
-
-</body>
-</html>
+    // Logika Scroll: Sembunyikan saat digulir,
