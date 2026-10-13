@@ -233,7 +233,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.4); /* Gelap sedikit agar kontras teks putih */
+      background: rgba(0, 0, 0, 0.4);
       z-index: 2;
     }
 
@@ -289,7 +289,6 @@
       justify-content: center;
     }
 
-    /* Teks Welcome to Our Wedding */
     .sec2-title {
       font-family: 'Lato', sans-serif;
       font-weight: 500;
@@ -304,7 +303,6 @@
       transition: opacity 1.6s ease, transform 1.6s ease;
     }
 
-    /* Nama Mempelai Foglihtenno07 dengan Gradient Animation */
     .sec2-names {
       font-family: 'Foglihtenno07', serif;
       font-size: 35px;
@@ -327,7 +325,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Teks Deskripsi Undangan */
     .sec2-desc {
       font-family: 'Lato', sans-serif;
       font-weight: 300;
@@ -342,7 +339,6 @@
       transition: opacity 1.6s ease 0.6s, transform 1.6s ease 0.6s;
     }
 
-    /* Kotak Countdown Glassmorphism */
     .sec2-countdown {
       display: flex;
       gap: 8px;
@@ -369,7 +365,7 @@
       font-family: 'Lato', sans-serif;
       font-weight: 700;
       font-size: 14px;
-      color: #4a3b32; /* Brown elegant */
+      color: #4a3b32;
       text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
     }
 
@@ -379,11 +375,10 @@
       font-size: 8px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #4a3b32; /* Brown elegant */
+      color: #4a3b32;
       margin-top: 2px;
     }
 
-    /* Kelas aktif untuk memicu animasi saat dibuka */
     .animate-in .sec2-title,
     .animate-in .sec2-names,
     .animate-in .sec2-desc,
@@ -393,61 +388,81 @@
     }
 
     /* =========================================================
-        6. AUDIO PLAYER KASET (ESTHETIC & FLOATING)
+        6. DESAIN BARU AUDIO PLAYER VINYL / PIRINGAN HITAM
         ========================================================= */
     #audio-player-container {
       position: fixed;
-      bottom: 20px;
+      bottom: 24px;
       right: 20px;
       z-index: 9990;
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
+    /* Efek Hilang saat Scroll */
     #audio-player-container.hide-player {
       opacity: 0;
       pointer-events: none;
-      transform: translateY(20px);
+      transform: scale(0.8) translateY(10px);
     }
 
-    .cassette-player {
-      width: 45px;
-      height: 45px;
-      background: rgba(40, 40, 40, 0.85);
-      backdrop-filter: blur(6px);
+    .vinyl-player {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      background: radial-gradient(circle, #2b2b2b 0%, #111111 100%);
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      position: relative;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), inset 0 0 0 2px rgba(255, 255, 255, 0.05);
+      transition: transform 0.2s ease;
     }
 
-    .cassette-inner {
-      width: 33px;
-      height: 33px;
-      border: 2px dashed #b5b5b5;
+    .vinyl-player:active {
+      transform: scale(0.92);
+    }
+
+    /* Alur Piringan Hitam */
+    .vinyl-grooves {
+      position: absolute;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.8), inset 0 0 0 6px rgba(255, 255, 255, 0.05);
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .playing-animation {
-      animation: rotateVinyl 3s linear infinite;
+    /* Label Tengah Vinyl */
+    .vinyl-center {
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(135deg, #d4af37, #aa7c11);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
     }
 
-    @keyframes rotateVinyl {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .cassette-center-dot {
+    .vinyl-icon-svg {
       width: 8px;
       height: 8px;
-      background: #ffffff;
-      border-radius: 50%;
+      fill: #ffffff;
+    }
+
+    /* Animasi Berputar */
+    .vinyl-rotate {
+      animation: spinVinyl 4s linear infinite;
+    }
+
+    @keyframes spinVinyl {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -486,6 +501,21 @@
           <div class="bg-slide bg-slide-2"></div>
           <div class="bg-slide bg-slide-3"></div>
           <div class="bg-slide bg-slide-1"></div>
+        </div>
+      </div>
+
+      <!-- AUDIO PLAYER (DILETAKKAN DI DALAM MAIN CONTENT / DILUAR SAMPUL) -->
+      <div id="audio-player-container">
+        <div class="vinyl-player" onclick="toggleAudio()" title="Play / Pause Musik">
+          <div class="vinyl-grooves vinyl-rotate" id="vinyl-disc">
+            <div class="vinyl-center">
+              <svg class="vinyl-icon-svg" id="play-pause-icon" viewBox="0 0 24 24">
+                <!-- Icon Pause Default -->
+                <rect x="6" y="4" width="4" height="16" rx="1" />
+                <rect x="14" y="4" width="4" height="16" rx="1" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -537,23 +567,14 @@
     </div>
 
   </div>
-
-  <!-- AUDIO PLAYER KASET (POJOK KANAN BAWAH) -->
-  <div id="audio-player-container">
-    <div class="cassette-player" onclick="toggleAudio()" title="Play/Pause Music">
-      <div class="cassette-inner playing-animation" id="cassette-icon">
-        <div class="cassette-center-dot"></div>
-      </div>
-    </div>
-  </div>
   
   <!-- Audio Element -->
-  <audio id="wedding-audio" loop>
+  <audio id="wedding-audio" loop preload="auto">
     <source src="https://files.catbox.moe/hva00z.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    // Ambil parameter nama tamu dari URL (contoh: ?to=Nama+Tamu)
+    // Ambil parameter nama tamu dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const namaTamu = urlParams.get('to');
     if (namaTamu) {
@@ -561,22 +582,25 @@
     }
 
     const audio = document.getElementById('wedding-audio');
-    const cassetteIcon = document.getElementById('cassette-icon');
+    const vinylDisc = document.getElementById('vinyl-disc');
+    const playPauseIcon = document.getElementById('play-pause-icon');
     let isPlaying = false;
 
-    // Fungsi untuk membuka undangan
+    // SVG Icons
+    const pauseIconSvg = '<rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>';
+    const playIconSvg = '<polygon points="8,5 19,12 8,19"/>';
+
+    // Fungsi Buka Undangan
     function bukaUndangan() {
       const cover = document.getElementById('section-cover');
       const mainContent = document.getElementById('main-content');
       const welcomeBox = document.getElementById('welcome-anim-box');
 
-      // Tampilkan konten utama
+      // Tampilkan konten utama & slider
       mainContent.style.display = 'block';
-      
-      // Jalankan animasi fade-out pada cover
       cover.classList.add('fade-out');
 
-      // Trigger animasi masuk section 2
+      // Pemicu animasi elemen Section 2
       setTimeout(() => {
         welcomeBox.classList.add('animate-in');
       }, 200);
@@ -584,49 +608,51 @@
       // Play audio otomatis
       audio.play().then(() => {
         isPlaying = true;
-        cassetteIcon.classList.add('playing-animation');
+        vinylDisc.classList.add('vinyl-rotate');
+        playPauseIcon.innerHTML = pauseIconSvg;
       }).catch(err => {
-        console.log("Autoplay diblokir browser:", err);
+        console.log("Autoplay ditolak browser:", err);
       });
 
-      // Sembunyikan elemen cover sepenuhnya setelah animasi selesai
       setTimeout(() => {
         cover.style.display = 'none';
         window.scrollTo(0, 0);
       }, 800);
     }
 
-    // Toggle Play/Pause Audio
+    // Toggle Play / Pause Audio
     function toggleAudio() {
       if (isPlaying) {
         audio.pause();
         isPlaying = false;
-        cassetteIcon.classList.remove('playing-animation');
+        vinylDisc.classList.remove('vinyl-rotate');
+        playPauseIcon.innerHTML = playIconSvg;
       } else {
         audio.play();
         isPlaying = true;
-        cassetteIcon.classList.add('playing-animation');
+        vinylDisc.classList.add('vinyl-rotate');
+        playPauseIcon.innerHTML = pauseIconSvg;
       }
     }
 
-    // Efek Scroll: Muncul/Hilangkan pemutar musik dengan fade in-out saat digulir
-    let lastScrollTop = 0;
+    // Hilangkan tombol lagu saat pengguna SCROLL UP & SCROLL DOWN
+    let scrollTimeout;
     const playerContainer = document.getElementById('audio-player-container');
 
     window.addEventListener('scroll', function() {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      if (scrollTop > 50) {
-        // Saat mulai digulir ke bawah, beri efek smooth fade out / sembunyi
-        playerContainer.classList.add('hide-player');
-      } else {
-        // Kembali ke paling atas, munculkan kembali
-        playerContainer.classList.remove('hide-player');
-      }
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    }, false);
+      // Sembunyikan saat layar sedang digulir
+      playerContainer.classList.add('hide-player');
 
-    // Countdown Timer Logic (Target: 12 Desember 2030)
+      // Reset timer setiap kali ada gerakan scroll
+      clearTimeout(scrollTimeout);
+
+      // Munculkan kembali 0.8 detik setelah pengguna berhenti menggulir
+      scrollTimeout = setTimeout(function() {
+        playerContainer.classList.remove('hide-player');
+      }, 800);
+    });
+
+    // Countdown Timer Logic (12.12.2030)
     const targetDate = new Date("December 12, 2030 00:00:00").getTime();
 
     function updateCountdown() {
