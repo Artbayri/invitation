@@ -394,7 +394,7 @@
     .floating-music-container {
       position: fixed;
       bottom: clamp(15px, 3vh, 25px);
-      left: clamp(15px, 3vw, 25px); /* Posisi di kiri bawah */
+      left: clamp(15px, 3vw, 25px);
       z-index: 9990;
       opacity: 1;
       visibility: visible;
@@ -512,13 +512,15 @@
           <div class="bg-slide bg-slide-1"></div>
         </div>
       </div>
+
       <!-- TOMBOL PEMUTAR MUSIK (KIRI BAWAH) -->
-    <div class="floating-music-container" id="musicContainer">
+      <div class="floating-music-container" id="musicContainer">
         <button id="musicBtn" onclick="toggleMusic()" class="pastel-btn" aria-label="Toggle Musik">
-            <i id="musicIcon" class="fa-solid fa-play"></i>
+          <i id="musicIcon" class="fa-solid fa-play"></i>
         </button>
-    </div>
-           <!-- ========================================== -->
+      </div>
+          
+      <!-- ========================================== -->
       <!-- [SECTION 2: WELCOME / PEMBUKA] -->
       <!-- ========================================== -->
       <section id="section-welcome">
@@ -538,138 +540,4 @@
               <div class="countdown-label">Hours</div>
             </div>
             <div class="countdown-box">
-              <div class="countdown-number" id="minutes">00</div>
-              <div class="countdown-label">Mins</div>
-            </div>
-            <div class="countdown-box">
-              <div class="countdown-number" id="seconds">00</div>
-              <div class="countdown-label">Secs</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========================================== -->
-      <!-- [SECTION 3: COUPLE / MEMPELAI SECTION] -->
-      <!-- ========================================== -->
-      <section id="section-couple" style="position: relative; z-index: 5; min-height: 100vh; padding: 60px 20px;">
-        <!-- Kode Mempelai akan diletakkan di sini nanti -->
-      </section>
-
-      <!-- ========================================== -->
-      <!-- [SECTION 4: EVENT / ACARA SECTION] -->
-      <!-- ========================================== -->
-      <section id="section-event" style="position: relative; z-index: 5; min-height: 100vh; padding: 60px 20px;">
-        <!-- Kode Detail Acara akan diletakkan di sini nanti -->
-      </section>
-
-    </div>
-
-  </div>
-  
-  <!-- Audio Element -->
-  <audio id="wedding-audio" loop preload="auto">
-    <source src="https://files.catbox.moe/hva00z.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-   <!-- Audio Element -->
-  <audio id="wedding-audio" src="https://files.catbox.moe/hva00z.mp3" loop preload="auto"></audio>
-
-  <script>
-    // Ambil parameter nama tamu dari URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const namaTamu = urlParams.get('to');
-    if (namaTamu) {
-      document.getElementById('nama-tamu').innerText = namaTamu;
-    }
-
-    // ========================================== -->
-    // LETAKKAN KODE JAVASCRIPT PEMUTAR MUSIK DI SINI -->
-    // ========================================== -->
-    var audio = document.getElementById("wedding-audio");
-    var btn = document.getElementById("musicBtn");
-    var icon = document.getElementById("musicIcon");
-    var container = document.getElementById("musicContainer");
-    let isPlaying = false;
-
-    // Fungsi Buka Undangan
-    function bukaUndangan() {
-      const cover = document.getElementById('section-cover');
-      const mainContent = document.getElementById('main-content');
-      const welcomeBox = document.getElementById('welcome-anim-box');
-
-      mainContent.style.display = 'block';
-      cover.classList.add('fade-out');
-
-      setTimeout(() => {
-        welcomeBox.classList.add('animate-in');
-      }, 200);
-
-      // Play audio otomatis menggunakan link Catbox Anda yang sudah ada
-      audio.play().then(function() {
-          isPlaying = true;
-          btn.classList.add("playing");
-          icon.className = "fa-solid fa-compact-disc";
-      }).catch(function(err) {
-          console.log("Autoplay diblokir:", err);
-      });
-
-      setTimeout(() => {
-        cover.style.display = 'none';
-        window.scrollTo(0, 0);
-      }, 800);
-    }
-
-    // Fungsi Toggle Play / Pause Musik
-    function toggleMusic() {
-        if (audio.paused) {
-            audio.play().then(function() {
-                isPlaying = true;
-                btn.classList.add("playing");
-                icon.className = "fa-solid fa-compact-disc";
-            });
-        } else {
-            audio.pause();
-            isPlaying = false;
-            btn.classList.remove("playing");
-            icon.className = "fa-solid fa-play";
-        }
-    }
-
-    // Logika Scroll: Sembunyikan saat digulir, munculkan kembali saat berhenti
-    let scrollTimeout;
-    window.addEventListener('scroll', function() {
-        container.classList.add("hidden");
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(function() {
-            container.classList.remove("hidden");
-        }, 300);
-    });
-
-    // Countdown Timer Logic (12.12.2030)
-    const targetDate = new Date("December 12, 2030 00:00:00").getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerText = String(days).padStart(2, '0');
-        document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-        document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-        document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
-      }
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
-
-</body>
-</html>
+              <div
