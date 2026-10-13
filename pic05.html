@@ -35,6 +35,19 @@
       font-weight: normal;
       font-style: normal;
     }
+    @font-face {
+      font-family: 'Sansilk';
+      src: url('font/font/Sansilk-x32eO.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Juliette';
+      src: url('font/font/Juliette-Jpz9M.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
 
     /* =========================================================
         2. RESET & STYLES DASAR
@@ -472,6 +485,124 @@
 
     .playing {
       animation: spin 4s linear infinite;
+      /* =========================================================
+        7. STYLES SEGMEN 3: COUPLE / MEMPELAI (ARCH CARD)
+        ========================================================= */
+    #section-couple {
+      position: relative;
+      z-index: 5;
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 16px;
+    }
+
+    /* Kotak Card Arch Full Kiri-Kanan dengan White Glassy Blurry */
+    .arch-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 250px 250px 30px 30px; /* Bentuk Arch / Setengah Lingkaran di atas */
+      padding: 60px 24px 70px 24px;
+      text-align: center;
+      color: #111111;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Judul Arin & Dito di dalam Card */
+    .sec3-title-couple {
+      font-family: 'Sansilk', sans-serif;
+      font-size: 22px;
+      background: linear-gradient(135deg, #d4af37 0%, #fff7cc 50%, #aa7c11 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldGlow 3s ease infinite;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+      margin-bottom: 25px;
+    }
+
+    @keyframes goldGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Teks Pembuka / Mukaddimah */
+    .sec3-opening-text {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      font-size: 11.5px;
+      line-height: 1.7;
+      color: #222222;
+      padding: 0 10px;
+      margin-bottom: 45px;
+    }
+
+    /* Nama Mempelai (Juliette Font) */
+    .sec3-bride-name, .sec3-groom-name {
+      font-family: 'Juliette', cursive, sans-serif;
+      font-size: 32px;
+      color: #111111;
+      margin-bottom: 8px;
+    }
+
+    /* Info Orang Tua */
+    .sec3-parents {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      font-size: 11.5px;
+      color: #444444;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    /* Tombol Instagram Glassy Grey */
+    .ig-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: rgba(100, 100, 100, 0.15);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(100, 100, 100, 0.3);
+      border-radius: 30px;
+      color: #222222;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .ig-btn:hover {
+      background: rgba(100, 100, 100, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .ig-btn i {
+      color: #333333;
+      font-size: 12px;
+    }
+
+    /* Divider "D E N G A N" */
+    .sec3-divider {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: #555555;
+      margin: 20px 0;
     }
   </style>
 </head>
@@ -550,12 +681,38 @@
           </div>
         </div>
       </section>
+        <!-- [SECTION 3: COUPLE / MEMPELAI SECTION] -->
+      <!-- ========================================== -->
+      <section id="section-couple">
+        <div class="arch-card">
+          <!-- Judul Arin & Dito -->
+          <div class="sec3-title-couple">Arin & Dito</div>
 
-      <!-- ========================================== -->
-      <!-- [SECTION 3: COUPLE / MEMPELAI SECTION] -->
-      <!-- ========================================== -->
-      <section id="section-couple" style="position: relative; z-index: 5; min-height: 100vh; padding: 60px 20px;">
-        <!-- Kode Mempelai akan diletakkan di sini nanti -->
+          <!-- Teks Pembuka -->
+          <div class="sec3-opening-text">
+            Assalamualaikum Warahmatullahi Wabarakatuh<br><br>
+            Dengan hormat,<br>
+            Puji syukur ke hadirat Tuhan Yang Maha Esa atas rahmat-Nya yang telah mempertemukan dan menyatukan hati kami. Di antara tanda-tanda kebesaran-Nya, kami bermaksud untuk mengikat janji suci pernikahan.<br><br>
+            Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.
+          </div>
+
+          <!-- Mempelai Wanita -->
+          <div class="sec3-bride-name">ARINA CELLISTA</div>
+          <div class="sec3-parents">Putri dari Bapak Budi & Ibu Budi</div>
+          <a href="https://artbayri.com" target="_blank" class="ig-btn">
+            <i class="fa-brands fa-instagram"></i> artbayri
+          </a>
+
+          <!-- Divider Dengan -->
+          <div class="sec3-divider">D E N G A N</div>
+
+          <!-- Mempelai Pria -->
+          <div class="sec3-groom-name">DITO WIJAYA</div>
+          <div class="sec3-parents">Putra dari Bapak Jaya & Ibu Jaya</div>
+          <a href="https://artbayri.com" target="_blank" class="ig-btn">
+            <i class="fa-brands fa-instagram"></i> artbayri
+          </a>
+        </div>
       </section>
 
       <!-- ========================================== -->
