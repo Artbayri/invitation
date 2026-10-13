@@ -780,4 +780,39 @@
         }
     }
 
-    // Logika Scroll: Sembunyikan saat digulir,
+    // Logika Scroll: Sembunyikan saat digulir, munculkan kembali saat berhenti
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        container.classList.add("hidden");
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+            container.classList.remove("hidden");
+        }, 300);
+    });
+
+    // Countdown Timer Logic (12.12.2030)
+    const targetDate = new Date("December 12, 2030 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = String(days).padStart(2, '0');
+        document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+        document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+        document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
