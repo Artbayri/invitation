@@ -12,8 +12,8 @@
 
   <style>
     /* =========================================================
-       1. DEKLARASI FONT CUSTOM
-       ========================================================= */
+        1. DEKLARASI FONT CUSTOM
+        ========================================================= */
     @font-face {
       font-family: 'BarokahSignature';
       src: url('font/font/BarokahSignatureRegular-PK15Z.ttf') format('truetype');
@@ -28,9 +28,16 @@
       font-style: normal;
     }
 
+    @font-face {
+      font-family: 'Foglihtenno07';
+      src: url('font/font/Foglihtenno07calt-WpzEA.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     /* =========================================================
-       2. RESET & STYLES DASAR
-       ========================================================= */
+        2. RESET & STYLES DASAR
+        ========================================================= */
     * {
       margin: 0;
       padding: 0;
@@ -73,8 +80,8 @@
     }
 
     /* =========================================================
-       3. STYLES SECTION 1: SAMPUL / COVER
-       ========================================================= */
+        3. STYLES SECTION 1: SAMPUL / COVER
+        ========================================================= */
     #section-cover {
       position: fixed;
       top: 0;
@@ -198,8 +205,8 @@
     }
 
     /* =========================================================
-       4. CONTAINER MAIN CONTENT & BACKGROUND SLIDER FIXED
-       ========================================================= */
+        4. CONTAINER MAIN CONTENT & BACKGROUND SLIDER FIXED
+        ========================================================= */
     #main-content {
       display: none;
       width: 100%;
@@ -207,7 +214,7 @@
       position: relative;
     }
 
-    /* SLIDER BACKGROUND TETAP (FIXED) LAYAR UTAMA */
+    /* SLIDER BACKGROUND TETAP (FIXED) DI BELAKANG */
     .bg-slider-container {
       position: fixed;
       top: 0;
@@ -226,7 +233,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.15);
+      background: rgba(0, 0, 0, 0.4); /* Gelap sedikit agar kontras teks putih */
       z-index: 2;
     }
 
@@ -255,38 +262,192 @@
     }
 
     /* =========================================================
-       5. STYLES SEGMEN 2: HERO / WELCOME SECTION
-       ========================================================= */
+        5. STYLES SEGMEN 2: WELCOME / PEMBUKA SECTION
+        ========================================================= */
     #section-welcome {
       position: relative;
       z-index: 5;
       width: 100vw;
-      height: 100vh;
+      min-height: 100vh;
       height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 30px 20px;
+      padding: 40px 20px;
     }
 
     .welcome-content {
       position: relative;
       width: 100%;
-      max-width: 420px;
+      max-width: 450px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-evenly;
-      height: 85%;
+      justify-content: center;
     }
 
-    .text-welcome {
+    /* Teks Welcome to Our Wedding */
+    .sec2-title {
       font-family: 'Lato', sans-serif;
-      font-size: 14px;
+      font-weight: 500;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
       color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      margin-bottom: 12px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.6s ease, transform 1.6s ease;
+    }
+
+    /* Nama Mempelai Foglihtenno07 dengan Gradient Animation */
+    .sec2-names {
+      font-family: 'Foglihtenno07', serif;
+      font-size: 35px;
+      letter-spacing: 2px;
+      white-space: nowrap;
+      background: linear-gradient(135deg, #ffffff 0%, #dcdcdc 50%, #8a8a8a 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: nameGradientMove 4s ease infinite;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.6s ease 0.3s, transform 1.6s ease 0.3s;
+    }
+
+    @keyframes nameGradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Teks Deskripsi Undangan */
+    .sec2-desc {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 9px;
+      line-height: 1.6;
+      color: #f0f0f0;
+      max-width: 320px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+      margin-bottom: 25px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.6s ease 0.6s, transform 1.6s ease 0.6s;
+    }
+
+    /* Kotak Countdown Glassmorphism */
+    .sec2-countdown {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.6s ease 0.9s, transform 1.6s ease 0.9s;
+    }
+
+    .countdown-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      padding: 8px 10px;
+      min-width: 52px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .countdown-number {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: #4a3b32; /* Brown elegant */
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+    }
+
+    .countdown-label {
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #4a3b32; /* Brown elegant */
+      margin-top: 2px;
+    }
+
+    /* Kelas aktif untuk memicu animasi saat dibuka */
+    .animate-in .sec2-title,
+    .animate-in .sec2-names,
+    .animate-in .sec2-desc,
+    .animate-in .sec2-countdown {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+        6. AUDIO PLAYER KASET (ESTHETIC & FLOATING)
+        ========================================================= */
+    #audio-player-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9990;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #audio-player-container.hide-player {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+    }
+
+    .cassette-player {
+      width: 45px;
+      height: 45px;
+      background: rgba(40, 40, 40, 0.85);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .cassette-inner {
+      width: 33px;
+      height: 33px;
+      border: 2px dashed #b5b5b5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .playing-animation {
+      animation: rotateVinyl 3s linear infinite;
+    }
+
+    @keyframes rotateVinyl {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .cassette-center-dot {
+      width: 8px;
+      height: 8px;
+      background: #ffffff;
+      border-radius: 50%;
     }
   </style>
 </head>
@@ -294,7 +455,9 @@
 
   <div class="mobile-container">
     
-    <!-- SECTION 1: COVER / SAMPUL -->
+    <!-- ========================================== -->
+    <!-- [SECTION 1: COVER / SAMPUL] -->
+    <!-- ========================================== -->
     <section id="section-cover">
       <div class="cover-content">
         <div class="text-the-wedding">The Wedding of</div>
@@ -326,15 +489,68 @@
         </div>
       </div>
 
-      <!-- SECTION 2: WELCOME / HERO -->
+      <!-- ========================================== -->
+      <!-- [SECTION 2: WELCOME / PEMBUKA] -->
+      <!-- ========================================== -->
       <section id="section-welcome">
-        <div class="welcome-content">
-          <h2 class="text-welcome">Selamat Datang di Acara Pernikahan Kami</h2>
+        <div class="welcome-content" id="welcome-anim-box">
+          <div class="sec2-title">WELCOME TO OUR WEDDING</div>
+          <div class="sec2-names">Arin & Dito</div>
+          <div class="sec2-desc">Together with our families, we joyfully invite you to share in our happiness as we celebrate our wedding.</div>
+          
+          <!-- Countdown Target: 12.12.2030 -->
+          <div class="sec2-countdown">
+            <div class="countdown-box">
+              <div class="countdown-number" id="days">00</div>
+              <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-box">
+              <div class="countdown-number" id="hours">00</div>
+              <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-box">
+              <div class="countdown-number" id="minutes">00</div>
+              <div class="countdown-label">Mins</div>
+            </div>
+            <div class="countdown-box">
+              <div class="countdown-number" id="seconds">00</div>
+              <div class="countdown-label">Secs</div>
+            </div>
+          </div>
         </div>
       </section>
+
+      <!-- ========================================== -->
+      <!-- [SECTION 3: COUPLE / MEMPELAI SECTION] -->
+      <!-- ========================================== -->
+      <section id="section-couple" style="position: relative; z-index: 5; min-height: 100vh; padding: 60px 20px;">
+        <!-- Kode Mempelai akan diletakkan di sini nanti -->
+      </section>
+
+      <!-- ========================================== -->
+      <!-- [SECTION 4: EVENT / ACARA SECTION] -->
+      <!-- ========================================== -->
+      <section id="section-event" style="position: relative; z-index: 5; min-height: 100vh; padding: 60px 20px;">
+        <!-- Kode Detail Acara akan diletakkan di sini nanti -->
+      </section>
+
     </div>
 
   </div>
+
+  <!-- AUDIO PLAYER KASET (POJOK KANAN BAWAH) -->
+  <div id="audio-player-container">
+    <div class="cassette-player" onclick="toggleAudio()" title="Play/Pause Music">
+      <div class="cassette-inner playing-animation" id="cassette-icon">
+        <div class="cassette-center-dot"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Audio Element -->
+  <audio id="wedding-audio" loop>
+    <source src="https://files.catbox.moe/hva00z.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
     // Ambil parameter nama tamu dari URL (contoh: ?to=Nama+Tamu)
@@ -344,10 +560,15 @@
       document.getElementById('nama-tamu').innerText = namaTamu;
     }
 
+    const audio = document.getElementById('wedding-audio');
+    const cassetteIcon = document.getElementById('cassette-icon');
+    let isPlaying = false;
+
     // Fungsi untuk membuka undangan
     function bukaUndangan() {
       const cover = document.getElementById('section-cover');
       const mainContent = document.getElementById('main-content');
+      const welcomeBox = document.getElementById('welcome-anim-box');
 
       // Tampilkan konten utama
       mainContent.style.display = 'block';
@@ -355,12 +576,78 @@
       // Jalankan animasi fade-out pada cover
       cover.classList.add('fade-out');
 
+      // Trigger animasi masuk section 2
+      setTimeout(() => {
+        welcomeBox.classList.add('animate-in');
+      }, 200);
+
+      // Play audio otomatis
+      audio.play().then(() => {
+        isPlaying = true;
+        cassetteIcon.classList.add('playing-animation');
+      }).catch(err => {
+        console.log("Autoplay diblokir browser:", err);
+      });
+
       // Sembunyikan elemen cover sepenuhnya setelah animasi selesai
       setTimeout(() => {
         cover.style.display = 'none';
         window.scrollTo(0, 0);
       }, 800);
     }
+
+    // Toggle Play/Pause Audio
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        cassetteIcon.classList.remove('playing-animation');
+      } else {
+        audio.play();
+        isPlaying = true;
+        cassetteIcon.classList.add('playing-animation');
+      }
+    }
+
+    // Efek Scroll: Muncul/Hilangkan pemutar musik dengan fade in-out saat digulir
+    let lastScrollTop = 0;
+    const playerContainer = document.getElementById('audio-player-container');
+
+    window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > 50) {
+        // Saat mulai digulir ke bawah, beri efek smooth fade out / sembunyi
+        playerContainer.classList.add('hide-player');
+      } else {
+        // Kembali ke paling atas, munculkan kembali
+        playerContainer.classList.remove('hide-player');
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, false);
+
+    // Countdown Timer Logic (Target: 12 Desember 2030)
+    const targetDate = new Date("December 12, 2030 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = String(days).padStart(2, '0');
+        document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+        document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+        document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 
 </body>
