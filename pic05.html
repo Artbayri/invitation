@@ -504,7 +504,7 @@
 
     .sec3-title-couple {
       font-family: 'Sansilk', sans-serif;
-      font-size: 22px;
+      font-size: 40px;
       margin-top: 50px; /* <-- TAMBAHKAN/EDIT BARIS INI (sesuaikan angkanya, misal 30px - 60px) */
       margin-bottom: 25px;
       background: linear-gradient(135deg, #d4af37 0%, #fff7cc 50%, #aa7c11 100%);
@@ -1004,7 +1004,7 @@
       scrollObserver.observe(el);
     });
 
-    // Countdown Timer Logic (12.12.2030)
+  // Countdown Timer Logic Target: 12 Desember 2030 Pukul 00:00:00 WIB
     const targetDate = new Date("December 12, 2030 00:00:00").getTime();
 
     function updateCountdown() {
@@ -1017,13 +1017,31 @@
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        document.getElementById("days").innerText = String(days).padStart(2, '0');
-        document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-        document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-        document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        // Update Countdown Section 2 (Pembuka) jika ada
+        const d1 = document.getElementById("days");
+        const h1 = document.getElementById("hours");
+        const m1 = document.getElementById("minutes");
+        const s1 = document.getElementById("seconds");
+
+        if (d1) d1.innerText = String(days).padStart(2, '0');
+        if (h1) h1.innerText = String(hours).padStart(2, '0');
+        if (m1) m1.innerText = String(minutes).padStart(2, '0');
+        if (s1) s1.innerText = String(seconds).padStart(2, '0');
+
+        // Update Countdown Section 4 (Save The Date) jika ID-nya terpisah
+        const sdDays = document.getElementById("sd-days");
+        const sdHours = document.getElementById("sd-hours");
+        const sdMins = document.getElementById("sd-minutes");
+        const sdSecs = document.getElementById("sd-seconds");
+
+        if (sdDays) sdDays.innerText = String(days).padStart(2, '0');
+        if (sdHours) sdHours.innerText = String(hours).padStart(2, '0');
+        if (sdMins) sdMins.innerText = String(minutes).padStart(2, '0');
+        if (sdSecs) sdSecs.innerText = String(seconds).padStart(2, '0');
       }
     }
 
+    // Jalankan countdown secara langsung dan perbarui setiap 1 detik
     setInterval(updateCountdown, 1000);
     updateCountdown();
   </script>
