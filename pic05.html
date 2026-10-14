@@ -601,20 +601,16 @@
       transform: translateY(0) scale(1);
     }
     /* =========================================================
-        9. STYLES SEGMEN 4: EVENT / ACARA (AKAD & RESEPSI)
+        TAMBAHAN STYLES KHUSUS SEGMEN 4 (EVENT / ACARA)
         ========================================================= */
-    #section-event {
-      position: relative;
-      z-index: 5;
+    .save-date-box {
+      background: rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 15px;
+      padding: 30px 20px;
       width: 100%;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 90px 20px 70px 20px;
-      text-align: center;
-      color: #ffffff;
+      max-width: 450px;
+      margin: 50px auto 60px auto;
     }
 
     .event-card {
@@ -626,9 +622,8 @@
     .event-title-main {
       font-family: 'Sansilk', sans-serif;
       font-size: 35px;
-      color: #ffffff;
+      color: #111111;
       margin-bottom: 15px;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
 
     .event-day {
@@ -636,7 +631,7 @@
       font-weight: 700;
       font-size: 20px;
       letter-spacing: 2px;
-      color: #f0f0f0;
+      color: #111111;
       margin-bottom: 5px;
     }
 
@@ -644,7 +639,7 @@
       font-family: 'Bodoni Moda', serif;
       font-weight: 700;
       font-size: 30px;
-      color: #ffffff;
+      color: #111111;
       margin-bottom: 5px;
     }
 
@@ -653,7 +648,7 @@
       font-weight: 400;
       font-size: 15px;
       letter-spacing: 1px;
-      color: #e0e0e0;
+      color: #333333;
       margin-bottom: 15px;
     }
 
@@ -662,7 +657,7 @@
       font-weight: 400;
       font-size: 14px;
       line-height: 1.6;
-      color: #dddddd;
+      color: #222222;
       margin-bottom: 10px;
     }
 
@@ -690,9 +685,9 @@
       text-decoration: none;
       cursor: pointer;
       outline: none;
-      background: linear-gradient(270deg, #333333, #7a7a7a, #1a1a1a, #555555);
+      background: linear-gradient(270deg, #222222, #555555, #111111, #444444);
       background-size: 300% 300%;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       animation: gradientMove 6s ease infinite;
       transition: transform 0.2s ease;
     }
@@ -704,20 +699,33 @@
     .minimalist-line {
       width: 60px;
       height: 1px;
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(0, 0, 0, 0.2);
       margin: 15px auto;
     }
 
-    .save-date-box {
-      background: rgba(20, 20, 20, 0.6);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 15px;
-      padding: 30px 20px;
-      width: 100%;
-      max-width: 450px;
-      margin-bottom: 60px;
+    .countdown-box-dark {
+      background: rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      padding: 6px 10px;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .countdown-number-dark {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #111111;
+    }
+
+    .countdown-label-dark {
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: 9px;
+      text-transform: uppercase;
+      color: #444444;
+      margin-top: 2px;
     }
   </style>
 </head>
@@ -796,16 +804,15 @@
           </div>
         </div>
       </section>
-
-      <!-- ========================================== -->
-      <!-- [SECTION 3: COUPLE / MEMPELAI SECTION] -->
+<!-- ========================================== -->
+      <!-- [SECTION 3 & 4: MEMPELAI & EVENT SECTION] -->
       <!-- ========================================== -->
       <section id="section-couple">
         <div class="arch-card scroll-animate">
-          <!-- Judul Arin & Dito -->
+          
+          <!-- BAGIAN MEMPELAI (SECTION 3) -->
           <div class="sec3-title-couple scroll-animate">Arin & Dito</div>
 
-          <!-- Teks Pembuka -->
           <div class="sec3-opening-text scroll-animate">
             Assalamualaikum Warahmatullahi Wabarakatuh<br><br>
             Dengan hormat,<br>
@@ -813,97 +820,93 @@
             Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.
           </div>
 
-          <!-- Mempelai Wanita -->
           <div class="sec3-bride-name scroll-animate">ARINA CELLISTA</div>
           <div class="sec3-parents scroll-animate">Putri dari Bapak Budi & Ibu Budi</div>
           <a href="https://www.instagram.com/artbayri/" target="_blank" class="ig-btn scroll-animate">
             <i class="fa-brands fa-instagram"></i> artbayri
           </a>
 
-          <!-- Divider Dengan -->
           <div class="sec3-divider scroll-animate">D E N G A N</div>
 
-          <!-- Mempelai Pria -->
           <div class="sec3-groom-name scroll-animate">DITO WIJAYA</div>
           <div class="sec3-parents scroll-animate">Putra dari Bapak Jaya & Ibu Jaya</div>
           <a href="https://www.instagram.com/artbayri/" target="_blank" class="ig-btn scroll-animate">
             <i class="fa-brands fa-instagram"></i> artbayri
           </a>
-        </div>
-      </section>
-         <!-- [SECTION 4: EVENT / ACARA SECTION] -->
-      <!-- ========================================== -->
-      <section id="section-event">
-        
-        <!-- SAVE THE DATE & COUNTDOWN -->
-        <div class="save-date-box scroll-animate">
-          <div class="scroll-animate" style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 3px; margin-bottom: 15px; color: #ffffff;">SAVE THE DATE</div>
-          <div class="minimalist-line scroll-animate"></div>
-          
-          <div class="scroll-animate" style="font-family: 'Lato', sans-serif; font-size: 13px; margin: 15px 0; color: #cccccc;">
-            12 Desember 2030
-          </div>
 
-          <div class="sec2-countdown scroll-animate" style="margin-bottom: 20px;">
-            <div class="countdown-box" style="padding: 6px 10px; min-width: 50px;">
-              <div class="countdown-number" id="days" style="font-size: 13px;">00</div>
-              <div class="countdown-label" style="font-size: 9px;">Days</div>
-            </div>
-            <div class="countdown-box" style="padding: 6px 10px; min-width: 50px;">
-              <div class="countdown-number" id="hours" style="font-size: 13px;">00</div>
-              <div class="countdown-label" style="font-size: 9px;">Hours</div>
-            </div>
-            <div class="countdown-box" style="padding: 6px 10px; min-width: 50px;">
-              <div class="countdown-number" id="minutes" style="font-size: 13px;">00</div>
-              <div class="countdown-label" style="font-size: 9px;">Mins</div>
-            </div>
-            <div class="countdown-box" style="padding: 6px 10px; min-width: 50px;">
-              <div class="countdown-number" id="seconds" style="font-size: 13px;">00</div>
-              <div class="countdown-label" style="font-size: 9px;">Secs</div>
-            </div>
-          </div>
-
-          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Arin+%26+Dito&dates=20301212T030000Z/20301212T100000Z&details=Pernikahan+Arin+%26+Dito&location=Jl.+Raya+Merdeka+No.+20+Kel.+Merdeka,+Kota+Raya" target="_blank" class="btn-gradient scroll-animate">
-            <i class="fa-solid fa-calendar-days"></i> Save to Calendar
-          </a>
-        </div>
-
-        <!-- AKAD -->
-        <div class="event-card scroll-animate">
-          <div class="event-title-main scroll-animate">Akad</div>
-          <div class="minimalist-line scroll-animate"></div>
-          <div class="event-day scroll-animate">SABTU</div>
-          <div class="event-date-num scroll-animate">12</div>
-          <div class="event-month scroll-animate">DES.2030</div>
+          <!-- BAGIAN ACARA / EVENT (SECTION 4 DI ATAS SHAPE PUTIH) -->
           
-          <div class="event-time scroll-animate" style="margin-top: 15px;">Pukul : 10.00 WIB s.d Selesai</div>
-          <div class="event-address scroll-animate">Alamat : Jl. Raya Merdeka No. 20 Kel. Merdeka, Kota Raya</div>
-          
-          <div class="btn-action-container scroll-animate">
-            <a href="https://maps.app.goo.gl/yKpg2Rqzgi2UQPYU7" target="_blank" class="btn-gradient">
-              <i class="fa-solid fa-location-dot"></i> Buka Gmaps
+          <!-- SAVE THE DATE & COUNTDOWN -->
+          <div class="save-date-box scroll-animate">
+            <div class="scroll-animate" style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 3px; margin-bottom: 15px; color: #111111;">SAVE THE DATE</div>
+            <div class="minimalist-line scroll-animate"></div>
+            
+            <div class="scroll-animate" style="font-family: 'Lato', sans-serif; font-size: 13px; margin: 15px 0; color: #333333;">
+              12 Desember 2030
+            </div>
+
+            <!-- Countdown Timer Gelap -->
+            <div class="sec2-countdown scroll-animate" style="margin-bottom: 20px;">
+              <div class="countdown-box-dark">
+                <div class="countdown-number-dark" id="days">00</div>
+                <div class="countdown-label-dark">Days</div>
+              </div>
+              <div class="countdown-box-dark">
+                <div class="countdown-number-dark" id="hours">00</div>
+                <div class="countdown-label-dark">Hours</div>
+              </div>
+              <div class="countdown-box-dark">
+                <div class="countdown-number-dark" id="minutes">00</div>
+                <div class="countdown-label-dark">Mins</div>
+              </div>
+              <div class="countdown-box-dark">
+                <div class="countdown-number-dark" id="seconds">00</div>
+                <div class="countdown-label-dark">Secs</div>
+              </div>
+            </div>
+
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Arin+%26+Dito&dates=20301212T030000Z/20301212T100000Z&details=Pernikahan+Arin+%26+Dito&location=Jl.+Raya+Merdeka+No.+20+Kel.+Merdeka,+Kota+Raya" target="_blank" class="btn-gradient scroll-animate">
+              <i class="fa-solid fa-calendar-days"></i> Save to Calendar
             </a>
           </div>
-        </div>
 
-        <!-- RESEPSI -->
-        <div class="event-card scroll-animate" style="margin-bottom: 0;">
-          <div class="event-title-main scroll-animate">Resepsi</div>
-          <div class="minimalist-line scroll-animate"></div>
-          <div class="event-day scroll-animate">MINGGU</div>
-          <div class="event-date-num scroll-animate">12</div>
-          <div class="event-month scroll-animate">DES.2030</div>
-          
-          <div class="event-time scroll-animate" style="margin-top: 15px;">Pukul : 10.00 WIB s.d Selesai</div>
-          <div class="event-address scroll-animate">Bertempat di Kediaman Mempelai Wanita<br>Alamat : Jl. Raya Merdeka No. 20 Kel. Merdeka, Kota Raya</div>
-          
-          <div class="btn-action-container scroll-animate">
-            <a href="https://maps.app.goo.gl/yKpg2Rqzgi2UQPYU7" target="_blank" class="btn-gradient">
-              <i class="fa-solid fa-location-dot"></i> Buka Gmaps
-            </a>
+          <!-- AKAD -->
+          <div class="event-card scroll-animate">
+            <div class="event-title-main scroll-animate">Akad</div>
+            <div class="minimalist-line scroll-animate"></div>
+            <div class="event-day scroll-animate">SABTU</div>
+            <div class="event-date-num scroll-animate">12</div>
+            <div class="event-month scroll-animate">DES.2030</div>
+            
+            <div class="event-time scroll-animate" style="margin-top: 15px;">Pukul : 10.00 WIB s.d Selesai</div>
+            <div class="event-address scroll-animate">Alamat : Jl. Raya Merdeka No. 20 Kel. Merdeka, Kota Raya</div>
+            
+            <div class="btn-action-container scroll-animate">
+              <a href="https://maps.app.goo.gl/yKpg2Rqzgi2UQPYU7" target="_blank" class="btn-gradient">
+                <i class="fa-solid fa-location-dot"></i> Buka Gmaps
+              </a>
+            </div>
           </div>
-        </div>
 
+          <!-- RESEPSI -->
+          <div class="event-card scroll-animate" style="margin-bottom: 0;">
+            <div class="event-title-main scroll-animate">Resepsi</div>
+            <div class="minimalist-line scroll-animate"></div>
+            <div class="event-day scroll-animate">MINGGU</div>
+            <div class="event-date-num scroll-animate">12</div>
+            <div class="event-month scroll-animate">DES.2030</div>
+            
+            <div class="event-time scroll-animate" style="margin-top: 15px;">Pukul : 10.00 WIB s.d Selesai</div>
+            <div class="event-address scroll-animate">Bertempat di Kediaman Mempelai Wanita<br>Alamat : Jl. Raya Merdeka No. 20 Kel. Merdeka, Kota Raya</div>
+            
+            <div class="btn-action-container scroll-animate">
+              <a href="https://maps.app.goo.gl/yKpg2Rqzgi2UQPYU7" target="_blank" class="btn-gradient">
+                <i class="fa-solid fa-location-dot"></i> Buka Gmaps
+              </a>
+            </div>
+          </div>
+
+        </div>
       </section> <!-- Kode Detail Acara akan diletakkan di sini nanti -->
     
     </div>
