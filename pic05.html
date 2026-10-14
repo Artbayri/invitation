@@ -847,23 +847,21 @@
             </div>
 
             <!-- Countdown Timer Gelap -->
-            <div class="sec2-countdown scroll-animate" style="margin-bottom: 20px;">
-              <div class="countdown-box-dark">
-                <div class="countdown-number-dark" id="days">00</div>
-                <div class="countdown-label-dark">Days</div>
-              </div>
-              <div class="countdown-box-dark">
-                <div class="countdown-number-dark" id="hours">00</div>
-                <div class="countdown-label-dark">Hours</div>
-              </div>
-              <div class="countdown-box-dark">
-                <div class="countdown-number-dark" id="minutes">00</div>
-                <div class="countdown-label-dark">Mins</div>
-              </div>
-              <div class="countdown-box-dark">
-                <div class="countdown-number-dark" id="seconds">00</div>
-                <div class="countdown-label-dark">Secs</div>
-              </div>
+           <div class="countdown-box-dark">
+            <div class="countdown-number-dark" id="sd-days">00</div>
+            <div class="countdown-label-dark">Days</div>
+            </div>
+            <div class="countdown-box-dark">
+            <div class="countdown-number-dark" id="sd-hours">00</div>
+            <div class="countdown-label-dark">Hours</div>
+            </div>
+            <div class="countdown-box-dark">
+              <div class="countdown-number-dark" id="sd-minutes">00</div>
+              <div class="countdown-label-dark">Mins</div>
+            </div>
+            <div class="countdown-box-dark">
+              <div class="countdown-number-dark" id="sd-seconds">00</div>
+              <div class="countdown-label-dark">Secs</div>
             </div>
 
             <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Arin+%26+Dito&dates=20301212T030000Z/20301212T100000Z&details=Pernikahan+Arin+%26+Dito&location=Jl.+Raya+Merdeka+No.+20+Kel.+Merdeka,+Kota+Raya" target="_blank" class="btn-gradient scroll-animate">
@@ -1004,46 +1002,46 @@
       scrollObserver.observe(el);
     });
 
-  // Countdown Timer Logic Target: 12 Desember 2030 Pukul 00:00:00 WIB
-    const targetDate = new Date("December 12, 2030 00:00:00").getTime();
+// Countdown Timer Logic Target: 12 Desember 2030 Pukul 00:00:00 WIB
+const targetDate = new Date("December 12, 2030 00:00:00").getTime();
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
+function updateCountdown() {
+  const now = new Date().getTime();
+  const difference = targetDate - now;
 
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  if (difference > 0) {
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        // Update Countdown Section 2 (Pembuka) jika ada
-        const d1 = document.getElementById("days");
-        const h1 = document.getElementById("hours");
-        const m1 = document.getElementById("minutes");
-        const s1 = document.getElementById("seconds");
+    // 1. Update Countdown di Section 2 (Welcome)
+    const d1 = document.getElementById("days");
+    const h1 = document.getElementById("hours");
+    const m1 = document.getElementById("minutes");
+    const s1 = document.getElementById("seconds");
 
-        if (d1) d1.innerText = String(days).padStart(2, '0');
-        if (h1) h1.innerText = String(hours).padStart(2, '0');
-        if (m1) m1.innerText = String(minutes).padStart(2, '0');
-        if (s1) s1.innerText = String(seconds).padStart(2, '0');
+    if (d1) d1.innerText = String(days).padStart(2, '0');
+    if (h1) h1.innerText = String(hours).padStart(2, '0');
+    if (m1) m1.innerText = String(minutes).padStart(2, '0');
+    if (s1) s1.innerText = String(seconds).padStart(2, '0');
 
-        // Update Countdown Section 4 (Save The Date) jika ID-nya terpisah
-        const sdDays = document.getElementById("sd-days");
-        const sdHours = document.getElementById("sd-hours");
-        const sdMins = document.getElementById("sd-minutes");
-        const sdSecs = document.getElementById("sd-seconds");
+    // 2. Update Countdown di Section 4 (Save the Date)
+    const sdDays = document.getElementById("sd-days");
+    const sdHours = document.getElementById("sd-hours");
+    const sdMins = document.getElementById("sd-minutes");
+    const sdSecs = document.getElementById("sd-seconds");
 
-        if (sdDays) sdDays.innerText = String(days).padStart(2, '0');
-        if (sdHours) sdHours.innerText = String(hours).padStart(2, '0');
-        if (sdMins) sdMins.innerText = String(minutes).padStart(2, '0');
-        if (sdSecs) sdSecs.innerText = String(seconds).padStart(2, '0');
-      }
-    }
+    if (sdDays) sdDays.innerText = String(days).padStart(2, '0');
+    if (sdHours) sdHours.innerText = String(hours).padStart(2, '0');
+    if (sdMins) sdMins.innerText = String(minutes).padStart(2, '0');
+    if (sdSecs) sdSecs.innerText = String(seconds).padStart(2, '0');
+  }
+}
 
-    // Jalankan countdown secara langsung dan perbarui setiap 1 detik
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+// Jalankan countdown
+setInterval(updateCountdown, 1000);
+updateCountdown();
   </script>
 
 </body>
