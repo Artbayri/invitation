@@ -928,7 +928,7 @@
       <!-- ========================================== -->
       <section style="position: relative; z-index: 5; width: 100%; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 24px;">
         <div class="scroll-animate" style="max-width: 500px; margin: 0 auto;">
-          <div class="scroll-animate" style="font-family: 'Lato', sans-serif; font-weight: 400; font-size: 15px; line-height: 1.8; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin-bottom: 15px;">
+          <div class="scroll-animate" style="font-family: 'Lato', sans-serif; font-weight: 400; font-size: 13px; line-height: 1.8; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin-bottom: 15px;">
             "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antara kamu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
           </div>
           <div class="scroll-animate" style="font-family: 'Lato', sans-serif; font-style: italic; font-weight: 400; font-size: 15px; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">
@@ -937,7 +937,73 @@
         </div>
       </section>
   </div>
-  
+  <!-- ========================================== -->
+      <!-- [SECTION 6: WEDDING WISH AND RSVP] -->
+      <!-- ========================================== -->
+      <section style="position: relative; z-index: 5; width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px 20px;">
+        <div class="scroll-animate" style="width: 100%; max-width: 480px; background: rgba(45, 30, 20, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 35px 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+          
+          <!-- Judul Section -->
+          <div class="scroll-animate" style="font-family: 'Foglihtenno07', serif; font-size: 30px; text-align: center; background: linear-gradient(135deg, #ffffff 0%, #e0d0c0 50%, #c5a880 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 25px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6);">
+            Wedding Wish & RSVP
+          </div>
+
+          <!-- Form RSVP & Wishes -->
+          <form id="rsvpForm" onsubmit="handleRsvpSubmit(event)" style="display: flex; flexDirection: column; gap: 15px; margin-bottom: 25px;">
+            <div>
+              <label style="display: block; font-family: 'Lato', sans-serif; font-size: 13px; color: #e0d0c0; margin-bottom: 5px;">Nama Tamu</label>
+              <input type="text" id="guestNameInput" required placeholder="Masukkan nama Anda..." style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: #fff; font-family: 'Lato', sans-serif; font-size: 13px; outline: none;">
+            </div>
+
+            <div>
+              <label style="display: block; font-family: 'Lato', sans-serif; font-size: 13px; color: #e0d0c0; margin-bottom: 5px;">Opsi Kehadiran</label>
+              <div style="display: flex; gap: 20px; align-items: center; margin-top: 5px; font-family: 'Lato', sans-serif; font-size: 13px; color: #fff;">
+                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                  <input type="radio" name="attendance" value="Hadir" required style="accent-color: #c5a880;"> Hadir
+                </label>
+                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                  <input type="radio" name="attendance" value="Tidak Hadir" required style="accent-color: #c5a880;"> Tidak Hadir
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label style="display: block; font-family: 'Lato', sans-serif; font-size: 13px; color: #e0d0c0; margin-bottom: 5px;">Wishes / Ucapan & Doa</label>
+              <textarea id="guestWishInput" rows="3" required placeholder="Tuliskan ucapan dan doa restu..." style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: #fff; font-family: 'Lato', sans-serif; font-size: 13px; outline: none; resize: none;"></textarea>
+            </div>
+
+            <button type="submit" style="width: 100%; padding: 12px; border: none; border-radius: 15px; background: linear-gradient(135deg, #c5a880, #8c6d48); color: #fff; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 13px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.2s;">
+              Kirim Ucapan & RSVP
+            </button>
+          </form>
+
+          <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.15); margin-bottom: 20px;"></div>
+
+          <!-- Kumpulan Wishes dengan Format Scroll -->
+          <div id="wishesContainer" style="max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding-right: 5px; margin-bottom: 20px;">
+            <!-- Daftar ucapan akan masuk secara dinamis di sini -->
+          </div>
+
+          <!-- Statistik Total Kehadiran & Wishes di Paling Bawah -->
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px; display: flex; justify-content: space-around; text-align: center; font-family: 'Lato', sans-serif; font-size: 11px; color: #e0d0c0;">
+            <div>
+              <div id="totalHadir" style="font-size: 15px; font-weight: 700; color: #fff;">0</div>
+              <div>Hadir</div>
+            </div>
+            <div style="width: 1px; background: rgba(255,255,255,0.15);"></div>
+            <div>
+              <div id="totalTidakHadir" style="font-size: 15px; font-weight: 700; color: #fff;">0</div>
+              <div>Tidak Hadir</div>
+            </div>
+            <div style="width: 1px; background: rgba(255,255,255,0.15);"></div>
+            <div>
+              <div id="totalWishes" style="font-size: 15px; font-weight: 700; color: #fff;">0</div>
+              <div>Total Wishes</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
   <!-- Audio Element -->
   <audio id="wedding-audio" loop preload="auto">
     <source src="https://files.catbox.moe/hva00z.mp3" type="audio/mpeg">
@@ -1068,6 +1134,65 @@ function updateCountdown() {
 // Jalankan countdown
 setInterval(updateCountdown, 1000);
 updateCountdown();
+// Inisialisasi data wishes dari localStorage atau default kosong
+    let wishesData = JSON.parse(localStorage.getItem('weddingWishesData')) || [];
+
+    function renderWishes() {
+      const container = document.getElementById('wishesContainer');
+      container.innerHTML = '';
+
+      let countHadir = 0;
+      let countTidakHadir = 0;
+
+      // Urutkan data terbaru di atas
+      const sortedData = [...wishesData].reverse();
+
+      sortedData.forEach(item => {
+        if (item.attendance === 'Hadir') countHadir++;
+        else countTidakHadir++;
+
+        const wishItem = document.createElement('div');
+        wishItem.style.cssText = "background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start;";
+        
+        wishItem.innerHTML = `
+          <div style="color: #e0d0c0; font-size: 14px; margin-top: 2px;"><i class="fa-solid fa-heart"></i></div>
+          <div style="flex: 1; font-family: 'Lato', sans-serif;">
+            <div style="font-weight: 700; font-size: 12px; color: #ffffff; margin-bottom: 3px;">${escapeHtml(item.name)} <span style="font-weight: 300; font-size: 10px; color: #c5a880; margin-left: 5px;">(${item.attendance})</span></div>
+            <div style="font-size: 11.5px; color: #d0d0d0; line-height: 1.4;">${escapeHtml(item.wish)}</div>
+          </div>
+        `;
+        container.appendChild(wishItem);
+      });
+
+      // Update statistik di bawah
+      document.getElementById('totalHadir').innerText = countHadir;
+      document.getElementById('totalTidakHadir').innerText = countTidakHadir;
+      document.getElementById('totalWishes').innerText = wishesData.length;
+    }
+
+    function handleRsvpSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('guestNameInput').value;
+      const attendance = document.querySelector('input[name="attendance"]:checked').value;
+      const wish = document.getElementById('guestWishInput').value;
+
+      const newEntry = { name, attendance, wish, timestamp: new Date().getTime() };
+      wishesData.push(newEntry);
+      
+      // Simpan permanen ke localStorage
+      localStorage.setItem('weddingWishesData', JSON.stringify(wishesData));
+
+      renderWishes();
+      document.getElementById('rsvpForm').reset();
+    }
+
+    // Fungsi keamanan kecil untuk teks input
+    function escapeHtml(text) {
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    // Jalankan render saat halaman dimuat
+    renderWishes();
   </script>
 
 </body>
