@@ -940,68 +940,72 @@
   <!-- ========================================== -->
       <!-- [SECTION 6: WEDDING WISH AND RSVP] -->
       <!-- ========================================== -->
-      <section style="position: relative; z-index: 5; width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px 20px;">
-        <div class="scroll-animate" style="width: 100%; max-width: 480px; background: rgba(45, 30, 20, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 35px 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+          <section style="position: relative; z-index: 5; width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px 20px;">
+        <div class="scroll-animate" style="width: 100%; max-width: 480px; background: rgba(35, 22, 14, 0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 35px 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
           
           <!-- Judul Section -->
-          <div class="scroll-animate" style="font-family: 'Foglihtenno07', serif; font-size: 30px; text-align: center; background: linear-gradient(135deg, #ffffff 0%, #e0d0c0 50%, #c5a880 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 25px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6);">
+          <div class="scroll-animate" style="font-family: 'Foglihtenno07', serif; font-size: 30px; text-align: center; background: linear-gradient(135deg, #ffffff 0%, #e0d0c0 50%, #c5a880 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 25px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));">
             Wedding Wish & RSVP
           </div>
 
-          <!-- Form RSVP & Wishes -->
-          <form id="rsvpForm" onsubmit="handleRsvpSubmit(event)" style="display: flex; flexDirection: column; gap: 15px; margin-bottom: 25px;">
-            <div>
-              <label style="display: block; font-family: 'Lato', sans-serif; font-size: 13px; color: #e0d0c0; margin-bottom: 5px;">Nama Tamu</label>
-              <input type="text" id="guestNameInput" required placeholder="Masukkan nama Anda..." style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: #fff; font-family: 'Lato', sans-serif; font-size: 13px; outline: none;">
+          <!-- Form RSVP & Wishes (Tersusun ke Bawah / Vertikal) -->
+          <form id="rsvpForm" onsubmit="handleRsvpSubmit(event)" style="display: flex; flex-direction: column; gap: 18px; margin-bottom: 30px;">
+            
+            <!-- 1. Nama Tamu -->
+            <div style="display: flex; flex-direction: column; gap: 6px; text-align: left;">
+              <label style="font-family: 'Lato', sans-serif; font-size: 13px; color: #e0d0c0; font-weight: 500;">Nama Tamu</label>
+              <input type="text" id="guestNameInput" required placeholder="Masukkan nama Anda..." style="width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.35); color: #fff; font-family: 'Lato', sans-serif; font-size: 13px; outline: none;">
             </div>
 
-            <div>
-              <label style="display: block; font-family: 'Lato', sans-serif; font-size: 13px; color: #e0d0c0; margin-bottom: 5px;">Opsi Kehadiran</label>
-              <div style="display: flex; gap: 20px; align-items: center; margin-top: 5px; font-family: 'Lato', sans-serif; font-size: 13px; color: #fff;">
-                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
-                  <input type="radio" name="attendance" value="Hadir" required style="accent-color: #c5a880;"> Hadir
+            <!-- 2. Opsi Kehadiran -->
+            <div style="display: flex; flex-direction: column; gap: 8px; text-align: left;">
+              <label style="font-family: 'Lato', sans-serif; font-size: 13px; color: #e0d0c0; font-weight: 500;">Opsi Kehadiran</label>
+              <div style="display: flex; gap: 25px; align-items: center; font-family: 'Lato', sans-serif; font-size: 13px; color: #fff;">
+                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                  <input type="radio" name="attendance" value="Hadir" required style="accent-color: #c5a880; width: 16px; height: 16px;"> Hadir
                 </label>
-                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
-                  <input type="radio" name="attendance" value="Tidak Hadir" required style="accent-color: #c5a880;"> Tidak Hadir
+                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                  <input type="radio" name="attendance" value="Tidak Hadir" required style="accent-color: #c5a880; width: 16px; height: 16px;"> Tidak Hadir
                 </label>
               </div>
             </div>
 
-            <div>
-              <label style="display: block; font-family: 'Lato', sans-serif; font-size: 13px; color: #e0d0c0; margin-bottom: 5px;">Wishes / Ucapan & Doa</label>
-              <textarea id="guestWishInput" rows="3" required placeholder="Tuliskan ucapan dan doa restu..." style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: #fff; font-family: 'Lato', sans-serif; font-size: 13px; outline: none; resize: none;"></textarea>
+            <!-- 3. Wishes / Ucapan -->
+            <div style="display: flex; flex-direction: column; gap: 6px; text-align: left;">
+              <label style="font-family: 'Lato', sans-serif; font-size: 13px; color: #e0d0c0; font-weight: 500;">Wishes / Ucapan & Doa</label>
+              <textarea id="guestWishInput" rows="4" required placeholder="Tuliskan ucapan dan doa restu..." style="width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.35); color: #fff; font-family: 'Lato', sans-serif; font-size: 13px; outline: none; resize: vertical; min-height: 90px;"></textarea>
             </div>
 
-            <button type="submit" style="width: 100%; padding: 12px; border: none; border-radius: 15px; background: linear-gradient(135deg, #c5a880, #8c6d48); color: #fff; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 13px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.2s;">
+            <!-- 4. Tombol Kirim -->
+            <button type="submit" style="width: 100%; padding: 13px; margin-top: 5px; border: none; border-radius: 12px; background: linear-gradient(135deg, #c5a880, #8c6d48); color: #fff; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 13px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.2s;">
               Kirim Ucapan & RSVP
             </button>
           </form>
 
-          <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.15); margin-bottom: 20px;"></div>
+          <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.15); margin-bottom: 25px;"></div>
 
-          <!-- Kumpulan Wishes dengan Format Scroll -->
-          <div id="wishesContainer" style="max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding-right: 5px; margin-bottom: 20px;">
-            <!-- Daftar ucapan akan masuk secara dinamis di sini -->
+          <!-- Kumpulan Wishes (Scrollable) -->
+          <div id="wishesContainer" style="max-height: 240px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding-right: 5px; margin-bottom: 25px; text-align: left;">
+            <!-- Daftar ucapan akan masuk di sini via JS -->
           </div>
 
-          <!-- Statistik Total Kehadiran & Wishes di Paling Bawah -->
-          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px; display: flex; justify-content: space-around; text-align: center; font-family: 'Lato', sans-serif; font-size: 11px; color: #e0d0c0;">
+          <!-- Total Statistik di Paling Bawah -->
+          <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px; display: flex; justify-content: space-around; text-align: center; font-family: 'Lato', sans-serif; font-size: 11px; color: #e0d0c0;">
             <div>
-              <div id="totalHadir" style="font-size: 15px; font-weight: 700; color: #fff;">0</div>
+              <div id="totalHadir" style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 2px;">0</div>
               <div>Hadir</div>
             </div>
             <div style="width: 1px; background: rgba(255,255,255,0.15);"></div>
             <div>
-              <div id="totalTidakHadir" style="font-size: 15px; font-weight: 700; color: #fff;">0</div>
+              <div id="totalTidakHadir" style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 2px;">0</div>
               <div>Tidak Hadir</div>
             </div>
             <div style="width: 1px; background: rgba(255,255,255,0.15);"></div>
             <div>
-              <div id="totalWishes" style="font-size: 15px; font-weight: 700; color: #fff;">0</div>
+              <div id="totalWishes" style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 2px;">0</div>
               <div>Total Wishes</div>
             </div>
           </div>
-
         </div>
       </section>
   <!-- Audio Element -->
