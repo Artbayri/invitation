@@ -1008,6 +1008,98 @@
           </div>
         </div>
       </section>
+  <!-- ========================================== -->
+      <!-- [SECTION 7: WEDDING GIFT] -->
+      <!-- ========================================== -->
+      <section style="position: relative; z-index: 5; width: 100%; padding-top: 130px; padding-bottom: 60px; padding-left: 20px; padding-right: 20px; display: flex; flex-direction: column; align-items: center;">
+        
+        <!-- Garis Dividen Elegant Warna Gold -->
+        <div class="scroll-animate" style="width: 120px; height: 1px; background: linear-gradient(90deg, transparent, #c5a880, transparent); margin-bottom: 50px;"></div>
+
+        <div class="scroll-animate" style="width: 100%; max-width: 480px; background: rgba(35, 22, 14, 0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 35px 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center;">
+          
+          <!-- Judul Section -->
+          <div class="scroll-animate" style="font-family: 'Foglihtenno07', serif; font-size: 30px; background: linear-gradient(135deg, #ffffff 0%, #e0d0c0 50%, #c5a880 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));">
+            Wedding Gift
+          </div>
+
+          <!-- Kata Pembuka -->
+          <div class="scroll-animate" style="font-family: 'Lato', sans-serif; font-size: 13px; line-height: 1.7; color: #ffffff; margin-bottom: 25px; text-align: center;">
+            Kehadiran serta doa restu dari Bapak/Ibu/Saudara/i sekalian merupakan hadiah terindah bagi kami. Namun, jika Anda ingin memberikan tanda kasih berupa hadiah, Anda dapat menyalurkannya melalui tautan/nomor rekening di bawah ini :
+          </div>
+
+          <!-- Tombol Tampilkan / Sembunyikan Rekening -->
+          <button onclick="toggleGiftCard()" id="btnToggleGift" class="scroll-animate" style="padding: 12px 24px; border: none; border-radius: 25px; background: linear-gradient(135deg, #c5a880, #8c6d48); color: #ffffff; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 13px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s ease; margin-bottom: 20px;">
+            <i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Tampilkan Nomor Rekening
+          </button>
+
+          <!-- Pembungkus Kartu Rekening (Default Tersembunyi) -->
+          <div id="giftCardContainer" style="display: none; flex-direction: column; gap: 18px; margin-top: 10px;">
+
+            <!-- 1. KARTU BRI -->
+            <div style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 15px; padding: 20px; text-align: left; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <img src="photo/BRI.png" alt="Logo BRI" style="height: 28px; width: auto; object-fit: contain;">
+                <span style="font-family: 'Lato', sans-serif; font-size: 11px; color: #c5a880; font-weight: 700;">Bank BRI</span>
+              </div>
+              <div>
+                <div style="font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; color: #ffffff; letter-spacing: 1px;">1234567</div>
+                <div style="font-family: 'Lato', sans-serif; font-size: 12px; color: #e0d0c0; margin-top: 2px;">a.n. Arina Cellista</div>
+              </div>
+              <button onclick="copyToClipboard('1234567', this)" style="align-self: flex-start; padding: 7px 16px; border: 1px solid rgba(197, 168, 128, 0.6); border-radius: 20px; background: rgba(197, 168, 128, 0.15); color: #ffffff; font-family: 'Lato', sans-serif; font-size: 11px; cursor: pointer; transition: all 0.2s ease;">
+                <i class="fa-regular fa-copy" style="margin-right: 6px;"></i> Salin No. Rekening
+              </button>
+            </div>
+
+            <!-- 2. KARTU BCA -->
+            <div style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 15px; padding: 20px; text-align: left; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <img src="photo/bca.png" alt="Logo BCA" style="height: 26px; width: auto; object-fit: contain;">
+                <span style="font-family: 'Lato', sans-serif; font-size: 11px; color: #c5a880; font-weight: 700;">Bank BCA</span>
+              </div>
+              <div>
+                <div style="font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; color: #ffffff; letter-spacing: 1px;">111222333444</div>
+                <div style="font-family: 'Lato', sans-serif; font-size: 12px; color: #e0d0c0; margin-top: 2px;">a.n. Arina Cellista</div>
+              </div>
+              <button onclick="copyToClipboard('111222333444', this)" style="align-self: flex-start; padding: 7px 16px; border: 1px solid rgba(197, 168, 128, 0.6); border-radius: 20px; background: rgba(197, 168, 128, 0.15); color: #ffffff; font-family: 'Lato', sans-serif; font-size: 11px; cursor: pointer; transition: all 0.2s ease;">
+                <i class="fa-regular fa-copy" style="margin-right: 6px;"></i> Salin No. Rekening
+              </button>
+            </div>
+
+            <!-- 3. KARTU MANDIRI -->
+            <div style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 15px; padding: 20px; text-align: left; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <img src="photo/mandiri.png" alt="Logo Mandiri" style="height: 26px; width: auto; object-fit: contain;">
+                <span style="font-family: 'Lato', sans-serif; font-size: 11px; color: #c5a880; font-weight: 700;">Bank Mandiri</span>
+              </div>
+              <div>
+                <div style="font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; color: #ffffff; letter-spacing: 1px;">0987654321</div>
+                <div style="font-family: 'Lato', sans-serif; font-size: 12px; color: #e0d0c0; margin-top: 2px;">a.n. Dito Wijaya</div>
+              </div>
+              <button onclick="copyToClipboard('0987654321', this)" style="align-self: flex-start; padding: 7px 16px; border: 1px solid rgba(197, 168, 128, 0.6); border-radius: 20px; background: rgba(197, 168, 128, 0.15); color: #ffffff; font-family: 'Lato', sans-serif; font-size: 11px; cursor: pointer; transition: all 0.2s ease;">
+                <i class="fa-regular fa-copy" style="margin-right: 6px;"></i> Salin No. Rekening
+              </button>
+            </div>
+
+            <!-- 4. KARTU DANA -->
+            <div style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 15px; padding: 20px; text-align: left; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <img src="photo/Dana.png" alt="Logo DANA" style="height: 26px; width: auto; object-fit: contain;">
+                <span style="font-family: 'Lato', sans-serif; font-size: 11px; color: #c5a880; font-weight: 700;">E-Wallet DANA</span>
+              </div>
+              <div>
+                <div style="font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; color: #ffffff; letter-spacing: 1px;">081212131415</div>
+                <div style="font-family: 'Lato', sans-serif; font-size: 12px; color: #e0d0c0; margin-top: 2px;">a.n. Dito Wijaya</div>
+              </div>
+              <button onclick="copyToClipboard('081212131415', this)" style="align-self: flex-start; padding: 7px 16px; border: 1px solid rgba(197, 168, 128, 0.6); border-radius: 20px; background: rgba(197, 168, 128, 0.15); color: #ffffff; font-family: 'Lato', sans-serif; font-size: 11px; cursor: pointer; transition: all 0.2s ease;">
+                <i class="fa-regular fa-copy" style="margin-right: 6px;"></i> Salin No. Rekening
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
   <!-- Audio Element -->
   <audio id="wedding-audio" loop preload="auto">
     <source src="https://files.catbox.moe/hva00z.mp3" type="audio/mpeg">
@@ -1197,6 +1289,35 @@ updateCountdown();
 
     // Jalankan render saat halaman dimuat
     renderWishes();
+    // Fungsi Toggle Sembunyikan / Tampilkan Rekening
+    function toggleGiftCard() {
+      const container = document.getElementById('giftCardContainer');
+      const btn = document.getElementById('btnToggleGift');
+
+      if (container.style.display === 'none' || container.style.display === '') {
+        container.style.display = 'flex';
+        btn.innerHTML = '<i class="fa-solid fa-eye-slash" style="margin-right: 8px;"></i> Sembunyikan Nomor Rekening';
+      } else {
+        container.style.display = 'none';
+        btn.innerHTML = '<i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Tampilkan Nomor Rekening';
+      }
+    }
+
+    // Fungsi Salin Rekening ke Clipboard
+    function copyToClipboard(text, buttonEl) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = buttonEl.innerHTML;
+        buttonEl.innerHTML = '<i class="fa-solid fa-check" style="margin-right: 6px;"></i> Tersalin!';
+        buttonEl.style.background = 'rgba(197, 168, 128, 0.4)';
+        
+        setTimeout(() => {
+          buttonEl.innerHTML = originalText;
+          buttonEl.style.background = 'rgba(197, 168, 128, 0.15)';
+        }, 2000);
+      }).catch(err => {
+        console.error('Gagal menyalin:', err);
+      });
+    }
   </script>
 
 </body>
