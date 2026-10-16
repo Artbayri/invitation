@@ -590,17 +590,17 @@
     /* =========================================================
         8. ANIMASI TRANSISI SCROLL BOUNCE FADE (UNTUK SECTION 2 & 3)
         ========================================================= */
-    .scroll-animate {
+   .scroll-animate {
       opacity: 0;
-      transform: translateY(40px) scale(0.98);
-      transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
       will-change: opacity, transform;
     }
 
     .scroll-animate.is-visible {
       opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+      transform: translateY(0);
+      }
     /* =========================================================
         TAMBAHAN STYLES KHUSUS SEGMEN 4 (EVENT / ACARA)
         ========================================================= */
