@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan</title>
+    <title>The Wedding Revina Gio</title>
 
     <!-- Google Fonts: Lato -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,21 +17,19 @@
             box-sizing: border-box;
         }
 
-        body {
+        html, body {
+            width: 100%;
+            height: 100%;
             font-family: 'Lato', sans-serif;
             background-color: #121212;
             color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Container utama section sampul */
+        /* Container utama section sampul - Fitted Full Screen untuk Web & Mobile */
         .cover-section {
             position: relative;
             width: 100%;
-            max-width: 480px; /* Ukuran tampilan mobile agar lebih proporsional */
             min-height: 100vh;
             background: url('background/pic06.jpg') no-repeat center center / cover;
             display: flex;
@@ -39,11 +37,10 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 100px 20px;
-            overflow: hidden;
+            padding: 80px 20px;
         }
 
-        /* Overlay gelap halus agar teks dan gambar lebih jelas di atas background */
+        /* Overlay gelap halus agar teks tetap mudah dibaca */
         .cover-section::before {
             content: '';
             position: absolute;
@@ -51,7 +48,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.45);
+            background: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
 
@@ -59,6 +56,7 @@
             position: relative;
             z-index: 2;
             width: 100%;
+            max-width: 600px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -72,23 +70,26 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #ffffff;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* Gambar revinagio.png */
+        /* Gambar revinagio.png (120px) */
         .title-img {
-            height: 35px;
-            width: auto;
-            margin-bottom: 25px;
+            width: 120px;
+            height: auto;
+            margin-bottom: 24px;
             object-fit: contain;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
         }
 
         /* Kepada Yth. */
         .kepada-yth {
             font-size: 13px;
             font-weight: 400;
-            color: #e0e0e0;
+            color: #f3f4f6;
             margin-bottom: 8px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         /* Nama Tamu Undangan (dinamis via parameter URL) */
@@ -97,7 +98,8 @@
             font-weight: 700; /* Bold */
             color: #ffffff;
             margin-bottom: 6px;
-            word-wrap: break-word;
+            word-break: break-word;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         /* Disclaimer Kesalahan Nama/Gelar */
@@ -105,66 +107,71 @@
             font-family: 'Lato', sans-serif;
             font-style: italic;
             font-size: 8px;
-            color: #d1d1d1;
-            margin-bottom: 30px;
-            max-width: 80%;
-            line-height: 1.3;
+            color: #e5e7eb;
+            margin-bottom: 32px;
+            max-width: 85%;
+            line-height: 1.4;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
         }
 
-        /* Style Tombol Open Invitation */
+        /* Style Tombol Open Invitation (Ungu Soft Pastel Gradasi) */
         .btn-open {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 12px 28px;
-            background: rgba(106, 27, 154, 0.65); /* Tema Ungu Classy Transparent */
-            border: 1px solid rgba(216, 180, 254, 0.8);
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #d8b4fe, #c084fc, #a855f7); /* Ungu Soft Pastel Gradasi */
+            border: 1px solid rgba(255, 255, 255, 0.6);
             border-radius: 30px;
             color: #ffffff;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
             text-decoration: none;
             cursor: pointer;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(106, 27, 154, 0.4);
+            box-shadow: 0 6px 20px rgba(192, 132, 252, 0.45);
             transition: all 0.4s ease;
-            animation: pulseGlow 2.5s infinite ease-in-out;
+            animation: pulseSoftGlow 3s infinite ease-in-out;
         }
 
         /* Style Icon Bunga Lavender Minimalis */
         .lavender-icon {
             width: 18px;
             height: 18px;
-            stroke: #e9d5ff;
+            stroke: #ffffff;
             stroke-width: 1.5;
             fill: none;
             transition: transform 0.4s ease;
         }
 
-        /* Efek Hover Tombol yang Elegan */
+        /* Efek Hover Tombol */
         .btn-open:hover {
-            background: rgba(147, 51, 234, 0.9);
-            border-color: #ffffff;
-            box-shadow: 0 6px 22px rgba(168, 85, 247, 0.7);
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, #e9d5ff, #d8b4fe, #c084fc);
+            box-shadow: 0 8px 25px rgba(216, 180, 254, 0.7);
+            transform: translateY(-3px) scale(1.02);
+            color: #4c1d95;
         }
 
         .btn-open:hover .lavender-icon {
+            stroke: #4c1d95;
             transform: rotate(-12deg) scale(1.1);
         }
 
-        /* Animasi Glow dan Pulse Classy Elegant */
-        @keyframes pulseGlow {
+        .btn-open:hover .lavender-icon circle {
+            fill: #6b21a8;
+        }
+
+        /* Animasi Glow Soft Elegant */
+        @keyframes pulseSoftGlow {
             0% {
-                box-shadow: 0 0 10px rgba(147, 51, 234, 0.4);
+                box-shadow: 0 0 12px rgba(216, 180, 254, 0.5);
             }
             50% {
-                box-shadow: 0 0 20px rgba(192, 132, 252, 0.8);
+                box-shadow: 0 0 24px rgba(192, 132, 252, 0.85);
             }
             100% {
-                box-shadow: 0 0 10px rgba(147, 51, 234, 0.4);
+                box-shadow: 0 0 12px rgba(216, 180, 254, 0.5);
             }
         }
     </style>
@@ -177,7 +184,7 @@
             <!-- Header -->
             <div class="wedding-of">THE WEDDING OF</div>
 
-            <!-- Gambar Nama Pasangan -->
+            <!-- Gambar Nama Pasangan (120px) -->
             <img src="photo/revinagio.png" alt="Revina & Gio" class="title-img">
 
             <!-- Kepada Yth. -->
@@ -193,39 +200,33 @@
             <button class="btn-open" onclick="openInvitation()">
                 <!-- SVG Icon Bunga Lavender Minimalis -->
                 <svg class="lavender-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Batang & Daun -->
                     <path d="M12 22V10" stroke-linecap="round"/>
                     <path d="M12 18C10 17 9 15 9 15" stroke-linecap="round"/>
                     <path d="M12 16C14 15 15 13 15 13" stroke-linecap="round"/>
-                    <!-- Kelopak Bunga Lavender Line Minimalist -->
-                    <circle cx="12" cy="9" r="1.5" fill="#e9d5ff" stroke="none"/>
-                    <circle cx="10" cy="7" r="1.5" fill="#d8b4fe" stroke="none"/>
-                    <circle cx="14" cy="7" r="1.5" fill="#d8b4fe" stroke="none"/>
-                    <circle cx="12" cy="5" r="1.2" fill="#c084fc" stroke="none"/>
-                    <circle cx="10.5" cy="3.5" r="1.2" fill="#a855f7" stroke="none"/>
-                    <circle cx="13.5" cy="3.5" r="1.2" fill="#a855f7" stroke="none"/>
-                    <circle cx="12" cy="2" r="1" fill="#9333ea" stroke="none"/>
+                    <circle cx="12" cy="9" r="1.5" fill="#ffffff" stroke="none"/>
+                    <circle cx="10" cy="7" r="1.5" fill="#f3e8ff" stroke="none"/>
+                    <circle cx="14" cy="7" r="1.5" fill="#f3e8ff" stroke="none"/>
+                    <circle cx="12" cy="5" r="1.2" fill="#e9d5ff" stroke="none"/>
+                    <circle cx="10.5" cy="3.5" r="1.2" fill="#d8b4fe" stroke="none"/>
+                    <circle cx="13.5" cy="3.5" r="1.2" fill="#d8b4fe" stroke="none"/>
+                    <circle cx="12" cy="2" r="1" fill="#c084fc" stroke="none"/>
                 </svg>
                 <span>Open Invitation</span>
             </button>
         </div>
     </section>
 
-    <!-- JavaScript untuk Membaca Parameter URL ?to= -->
+    <!-- JavaScript Parameter URL ?to= -->
     <script>
-        // Mengambil parameter 'to' dari URL
         const urlParams = new URLSearchParams(window.location.search);
         const guestParam = urlParams.get('to');
 
-        // Jika parameter 'to' ada di URL, ubah teks Tamu Undangan
         if (guestParam) {
             document.getElementById('guestName').innerText = guestParam;
         }
 
-        // Fungsi tombol buka undangan
         function openInvitation() {
             alert("Membuka Undangan...");
-            // Anda bisa menambahkan scroll smooth ke section berikutnya di sini
         }
     </script>
 </body>
