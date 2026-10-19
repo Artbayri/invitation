@@ -24,16 +24,16 @@
       background-color: #fdfbfb;
     }
 
-    /* Container utama split-screen */
+    /* Layout Utama Split-Screen */
     .main-wrapper {
       display: flex;
       width: 100vw;
       min-height: 100vh;
     }
 
-    /* KIRI: Fixed Side Background (Desktop Only) */
+    /* KIRI: Sampul Diam/Fixed - Ukuran diperbesar (60%) */
     .left-side {
-      width: 50%;
+      width: 60%;
       height: 100vh;
       position: fixed;
       top: 0;
@@ -42,10 +42,10 @@
       z-index: 1;
     }
 
-    /* KANAN: Scrollable Area */
+    /* KANAN: Sampul Scroll - Ukuran disesuaikan (40%) */
     .right-side {
-      width: 50%;
-      margin-left: 50%;
+      width: 40%;
+      margin-left: 60%;
       min-height: 100vh;
       position: relative;
       z-index: 2;
@@ -63,7 +63,7 @@
       align-items: center;
       text-align: center;
       padding: 20px;
-      /* Animasi pergeseran ke atas saat dibuka */
+      /* Animasi pergeseran ke atas secara perlahan dan elegan */
       transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.5s ease;
       z-index: 10;
     }
@@ -75,7 +75,7 @@
       pointer-events: none;
     }
 
-    /* Styling Teks Sampul sesuai Spesifikasi */
+    /* Styling Teks Sampul */
     .text-title {
       font-family: 'Lato', sans-serif;
       font-weight: 500;
@@ -120,35 +120,12 @@
       margin-bottom: 35px;
     }
 
-    /* Tombol Buka Undangan dengan Ornamen Lavender */
-    .btn-container {
-      display: flex;
+    /* Tombol Buka Undangan dengan Animasi Pastel Soft & Amplop */
+    .btn-open {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-    }
-
-    /* Ornamen Lavender Line Minimalist */
-    .lavender-line {
-      width: 30px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #b19ffb);
-      border-radius: 2px;
-      position: relative;
-    }
-    .lavender-line::before {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: -3px;
-      width: 8px;
-      height: 8px;
-      background-color: #d8cefc;
-      border-radius: 50%;
-    }
-
-    /* Tombol dengan Animasi Warna Pastel Soft */
-    .btn-open {
+      gap: 8px;
       background: linear-gradient(135deg, #e6e0fa, #f3effe, #e8f0fe);
       background-size: 200% 200%;
       color: #4a3e56;
@@ -168,13 +145,28 @@
     .btn-open:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(177, 159, 251, 0.35);
-      background-color: #d8cefc;
     }
 
     @keyframes pastelGradient {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
+    }
+
+    /* Animasi Ikon Amplop Terbuka di Dalam Tombol */
+    .envelope-icon {
+      width: 16px;
+      height: 14px;
+      position: relative;
+    }
+
+    .envelope-flap {
+      transform-origin: top;
+      transition: transform 0.4s ease;
+    }
+
+    .btn-open:hover .envelope-flap {
+      transform: rotateX(180deg);
     }
 
     /* ANIMASI COME IN SANGAT LAMBAT */
@@ -184,7 +176,7 @@
       animation: comeInSlow 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     }
 
-    /* Delay bertahap agar tampilan muncul berurutan dan teratur */
+    /* Delay bertahap */
     .delay-1 { animation-delay: 0.3s; }
     .delay-2 { animation-delay: 0.8s; }
     .delay-3 { animation-delay: 1.3s; }
@@ -199,7 +191,7 @@
       }
     }
 
-    /* Isi Undangan Utama (Terbuka setelah klik Buka Undangan) */
+    /* Isi Undangan Utama */
     .main-content {
       padding: 60px 20px;
       min-height: 100vh;
@@ -210,11 +202,16 @@
     /* RESPONSIVE: MOBILE VIEW */
     @media (max-width: 768px) {
       .left-side {
-        display: none; /* Sembunyikan gambar kiri pada tampilan mobile */
+        display: none; /* Sembunyikan bagian kiri di mobile */
       }
       .right-side {
         width: 100%;
-        margin-left: 0; /* Mengisi penuh layar mobile */
+        margin-left: 0;
+      }
+      /* Mengatur gambar sampul agar pas (fitted) & tidak terpotong di layar HP */
+      #cover-section {
+        background-size: contain;
+        background-color: #fdfbfb; /* Warna latar penyelarasan jika aspek rasio berbeda */
       }
     }
   </style>
@@ -222,10 +219,10 @@
 <body>
 
   <div class="main-wrapper">
-    <!-- SISI KIRI (Fixed / Diam - Desktop Only) -->
+    <!-- SISI KIRI (Fixed / Diam - Desktop Only, Ukuran 60%) -->
     <div class="left-side"></div>
 
-    <!-- SISI KANAN (Active Scroll) -->
+    <!-- SISI KANAN (Active Scroll - Ukuran 40%) -->
     <div class="right-side">
       
       <!-- SECTION 1: SAMPUL COVER -->
@@ -240,7 +237,7 @@
         <!-- Kepada Yth -->
         <div class="text-to slow-come-in delay-3">Kepada Yth</div>
         
-        <!-- Nama Tamu Undangan (Diambil dari URL Parameter ?to=) -->
+        <!-- Nama Tamu Undangan (?to=) -->
         <div id="guest-name" class="guest-name slow-come-in delay-4">Tamu Undangan</div>
         
         <!-- Teks Permohonan Maaf -->
@@ -248,15 +245,22 @@
           Mohon maaf apabila ada kesalahan dalam penulisan nama atau gelar
         </div>
         
-        <!-- Tombol Buka Undangan dengan Ornaments -->
-        <div class="btn-container slow-come-in delay-6">
-          <div class="lavender-line"></div>
-          <button class="btn-open" onclick="openInvitation()">Buka Undangan</button>
+        <!-- Tombol Buka Undangan dengan Ikon Amplop Animasi -->
+        <div class="slow-come-in delay-6">
+          <button class="btn-open" onclick="openInvitation()">
+            <!-- SVG Ikon Amplop Interaktif -->
+            <svg class="envelope-icon" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="3" width="22" height="14" rx="2" stroke="#4a3e56" stroke-width="1.8" fill="#ffffff"/>
+              <!-- Lipatan Amplop (Akan Terbuka Saat Hover/Klik) -->
+              <path class="envelope-flap" d="M2 3L12 11L22 3" stroke="#4a3e56" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Buka Undangan</span>
+          </button>
         </div>
 
       </section>
 
-      <!-- SECTION 2: KONTEN UTAMA UNDANGAN (Tampil setelah dibuka) -->
+      <!-- SECTION 2: KONTEN UTAMA UNDANGAN -->
       <main class="main-content">
         <h2>Acara Pernikahan</h2>
         <p style="margin-top: 20px; color: #666; font-size: 14px;">
@@ -268,7 +272,7 @@
   </div>
 
   <script>
-    // 1. Mengambil parameter "to" dari URL untuk nama tamu undangan
+    // 1. Ambil parameter nama tamu dari URL (?to=)
     function getGuestName() {
       const urlParams = new URLSearchParams(window.location.search);
       const guestName = urlParams.get('to');
@@ -277,18 +281,16 @@
       }
     }
 
-    // 2. Fungsi untuk membuka undangan (geser sampul perlahan ke atas)
+    // 2. Fungsi Buka Undangan
     function openInvitation() {
       const cover = document.getElementById('cover-section');
       cover.classList.add('slide-up');
 
-      // Mengizinkan scroll penuh pada halaman setelah sampul terangkat
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 500);
     }
 
-    // Jalankan pengambilan nama saat halaman selesai di-load
     window.addEventListener('DOMContentLoaded', getGuestName);
   </script>
 
