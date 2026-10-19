@@ -93,10 +93,24 @@
     }
 
     .img-names {
-      height: 180px;
+      height: 200px; /* Ubah angka ini jika ingin membesarkan/mengecilkan logo */
       width: auto;
       object-fit: contain;
-      margin-bottom: 100px;
+      margin-bottom: 40px;
+    }
+
+    /* KOTAK GLASSY BLUR WHITE (GLASSMORPHISM) */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      padding: 20px 15px;
+      max-width: 85%;
+      width: 320px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+      margin-bottom: 25px;
     }
 
     .text-to {
@@ -112,7 +126,7 @@
       font-weight: 700;
       font-size: 19px;
       color: #000000;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       text-transform: capitalize;
     }
 
@@ -121,10 +135,9 @@
       font-weight: 500;
       font-style: italic;
       font-size: 9px;
-      color: #000000;
-      max-width: 80%;
+      color: #333333;
       line-height: 1.4;
-      margin-bottom: 35px;
+      margin: 0 auto;
     }
 
     /* Tombol Buka Undangan dengan Animasi Pastel Soft & Amplop */
@@ -188,8 +201,6 @@
     .delay-2 { animation-delay: 0.8s; }
     .delay-3 { animation-delay: 1.3s; }
     .delay-4 { animation-delay: 1.8s; }
-    .delay-5 { animation-delay: 2.3s; }
-    .delay-6 { animation-delay: 2.8s; }
 
     @keyframes comeInSlow {
       to {
@@ -243,19 +254,22 @@
         <!-- Gambar Nama Pasangan -->
         <img src="photo/revinagio.png?v=2" alt="Revin & Agio" class="img-names slow-come-in delay-2">
         
-        <!-- Kepada Yth -->
-        <div class="text-to slow-come-in delay-3">Kepada Yth</div>
-        
-        <!-- Nama Tamu Undangan (?to=) -->
-        <div id="guest-name" class="guest-name slow-come-in delay-4">Tamu Undangan</div>
-        
-        <!-- Teks Permohonan Maaf -->
-        <div class="text-apology slow-come-in delay-5">
-          Mohon maaf apabila ada kesalahan dalam penulisan nama atau gelar
+        <!-- KOTAK GLASSY BLUR WHITE MEMBUNGKUS KEPADA YTH, NAMA TAMU, & PERMOHONAN MAAF -->
+        <div class="glass-card slow-come-in delay-3">
+          <!-- Kepada Yth -->
+          <div class="text-to">Kepada Yth</div>
+          
+          <!-- Nama Tamu Undangan (?to=) -->
+          <div id="guest-name" class="guest-name">Tamu Undangan</div>
+          
+          <!-- Teks Permohonan Maaf -->
+          <div class="text-apology">
+            Mohon maaf apabila ada kesalahan dalam penulisan nama atau gelar
+          </div>
         </div>
         
         <!-- Tombol Buka Undangan dengan Ikon Amplop Animasi -->
-        <div class="slow-come-in delay-6">
+        <div class="slow-come-in delay-4">
           <button class="btn-open" onclick="openInvitation()">
             <!-- SVG Ikon Amplop Interaktif -->
             <svg class="envelope-icon" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
