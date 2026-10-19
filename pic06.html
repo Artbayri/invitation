@@ -1,232 +1,296 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wedding Revina Gio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding of Revin & Agio</title>
+  
+  <!-- Import Font Lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,500;0,700;1,500&display=swap" rel="stylesheet">
 
-    <!-- Google Fonts: Lato -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body, html {
+      height: 100%;
+      font-family: 'Lato', sans-serif;
+      overflow-x: hidden;
+      background-color: #fdfbfb;
+    }
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            font-family: 'Lato', sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
+    /* Container utama split-screen */
+    .main-wrapper {
+      display: flex;
+      width: 100vw;
+      min-height: 100vh;
+    }
 
-        /* Container utama section sampul - Fitted Full Screen untuk Web & Mobile */
-        .cover-section {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            background: url('background/pic06.jpg') no-repeat center center / cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 80px 20px;
-        }
+    /* KIRI: Fixed Side Background (Desktop Only) */
+    .left-side {
+      width: 50%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: url('background/pic06-sampulside.jpg') no-repeat center center/cover;
+      z-index: 1;
+    }
 
-        /* Overlay gelap halus agar teks tetap mudah dibaca */
-        .cover-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
+    /* KANAN: Scrollable Area */
+    .right-side {
+      width: 50%;
+      margin-left: 50%;
+      min-height: 100vh;
+      position: relative;
+      z-index: 2;
+    }
 
-        .cover-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    /* Section 1: Sampul Cover Layer */
+    #cover-section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background: url('background/pic06-sampul.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      /* Animasi pergeseran ke atas saat dibuka */
+      transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.5s ease;
+      z-index: 10;
+    }
 
-        /* Header: THE WEDDING OF */
-        .wedding-of {
-            font-family: 'Lato', sans-serif;
-            font-size: 13px;
-            font-weight: 900; /* Black */
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #000000;
-            margin-bottom: 16px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
+    /* Class untuk menggeser sampul ke atas */
+    #cover-section.slide-up {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
 
-        /* Gambar revinagio.png (120px) */
-        .title-img {
-            width: 300px;
-            height: auto;
-            margin-bottom: 24px;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
-        }
+    /* Styling Teks Sampul sesuai Spesifikasi */
+    .text-title {
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: 10px;
+      color: #000000;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
 
-        /* Kepada Yth. */
-        .kepada-yth {
-            font-size: 13px;
-            font-weight: 400;
-            color: #000000;
-            margin-bottom: 8px;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-        }
+    .img-names {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 25px;
+    }
 
-        /* Nama Tamu Undangan (dinamis via parameter URL) */
-        .guest-name {
-            font-size: 17px;
-            font-weight: 700; /* Bold */
-            color: #000000;
-            margin-bottom: 6px;
-            word-break: break-word;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-        }
+    .text-to {
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: 10px;
+      color: #000000;
+      margin-bottom: 8px;
+    }
 
-        /* Disclaimer Kesalahan Nama/Gelar */
-        .disclaimer {
-            font-family: 'Lato', sans-serif;
-            font-style: italic;
-            font-size: 8px;
-            color: #e5e7eb;
-            margin-bottom: 32px;
-            max-width: 85%;
-            line-height: 1.4;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-        }
+    .guest-name {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #000000;
+      margin-bottom: 12px;
+      text-transform: capitalize;
+    }
 
-        /* Style Tombol Open Invitation (Ungu Soft Pastel Gradasi) */
-        .btn-open {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #dcccec, #bcd8ec, #f9e1a8); /* Ungu Soft Pastel Gradasi */
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 30px;
-            color: #ffffff;
-            font-size: 13.5px;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-            text-decoration: none;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(192, 132, 252, 0.45);
-            transition: all 0.4s ease;
-            animation: pulseSoftGlow 3s infinite ease-in-out;
-        }
+    .text-apology {
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-style: italic;
+      font-size: 9px;
+      color: #000000;
+      max-width: 80%;
+      line-height: 1.4;
+      margin-bottom: 35px;
+    }
 
-        /* Style Icon Bunga Lavender Minimalis */
-        .lavender-icon {
-            width: 18px;
-            height: 18px;
-            stroke: #ffffff;
-            stroke-width: 1.5;
-            fill: none;
-            transition: transform 0.4s ease;
-        }
+    /* Tombol Buka Undangan dengan Ornamen Lavender */
+    .btn-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
 
-        /* Efek Hover Tombol */
-        .btn-open:hover {
-            background: linear-gradient(135deg, #e9d5ff, #d8b4fe, #c084fc);
-            box-shadow: 0 8px 25px rgba(216, 180, 254, 0.7);
-            transform: translateY(-3px) scale(1.02);
-            color: #4c1d95;
-        }
+    /* Ornamen Lavender Line Minimalist */
+    .lavender-line {
+      width: 30px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #b19ffb);
+      border-radius: 2px;
+      position: relative;
+    }
+    .lavender-line::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -3px;
+      width: 8px;
+      height: 8px;
+      background-color: #d8cefc;
+      border-radius: 50%;
+    }
 
-        .btn-open:hover .lavender-icon {
-            stroke: #4c1d95;
-            transform: rotate(-12deg) scale(1.1);
-        }
+    /* Tombol dengan Animasi Warna Pastel Soft */
+    .btn-open {
+      background: linear-gradient(135deg, #e6e0fa, #f3effe, #e8f0fe);
+      background-size: 200% 200%;
+      color: #4a3e56;
+      border: 1px solid #d3c5f5;
+      padding: 10px 22px;
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(177, 159, 251, 0.2);
+      animation: pastelGradient 6s ease infinite;
+      transition: all 0.3s ease;
+    }
 
-        .btn-open:hover .lavender-icon circle {
-            fill: #6b21a8;
-        }
+    .btn-open:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(177, 159, 251, 0.35);
+      background-color: #d8cefc;
+    }
 
-        /* Animasi Glow Soft Elegant */
-        @keyframes pulseSoftGlow {
-            0% {
-                box-shadow: 0 0 12px rgba(216, 180, 254, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 24px rgba(192, 132, 252, 0.85);
-            }
-            100% {
-                box-shadow: 0 0 12px rgba(216, 180, 254, 0.5);
-            }
-        }
-    </style>
+    @keyframes pastelGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ANIMASI COME IN SANGAT LAMBAT */
+    .slow-come-in {
+      opacity: 0;
+      transform: translateY(25px);
+      animation: comeInSlow 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    /* Delay bertahap agar tampilan muncul berurutan dan teratur */
+    .delay-1 { animation-delay: 0.3s; }
+    .delay-2 { animation-delay: 0.8s; }
+    .delay-3 { animation-delay: 1.3s; }
+    .delay-4 { animation-delay: 1.8s; }
+    .delay-5 { animation-delay: 2.3s; }
+    .delay-6 { animation-delay: 2.8s; }
+
+    @keyframes comeInSlow {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Isi Undangan Utama (Terbuka setelah klik Buka Undangan) */
+    .main-content {
+      padding: 60px 20px;
+      min-height: 100vh;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    /* RESPONSIVE: MOBILE VIEW */
+    @media (max-width: 768px) {
+      .left-side {
+        display: none; /* Sembunyikan gambar kiri pada tampilan mobile */
+      }
+      .right-side {
+        width: 100%;
+        margin-left: 0; /* Mengisi penuh layar mobile */
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Section 1 (Sampul) -->
-    <section class="cover-section">
-        <div class="cover-content">
-            <!-- Header -->
-            <div class="wedding-of">THE WEDDING OF</div>
+  <div class="main-wrapper">
+    <!-- SISI KIRI (Fixed / Diam - Desktop Only) -->
+    <div class="left-side"></div>
 
-            <!-- Gambar Nama Pasangan (120px) -->
-            <img src="photo/revinagio.png" alt="Revina & Gio" class="title-img">
-
-            <!-- Kepada Yth. -->
-            <div class="kepada-yth">Kepada Yth.</div>
-
-            <!-- Nama Tamu dari Parameter ?to= -->
-            <div class="guest-name" id="guestName">Tamu Undangan</div>
-
-            <!-- Disclaimer -->
-            <div class="disclaimer">*mohon maaf apabila ada kesalahan dalam penulisan nama atau gelar</div>
-
-            <!-- Tombol Open Invitation -->
-            <button class="btn-open" onclick="openInvitation()">
-                <!-- SVG Icon Bunga Lavender Minimalis -->
-                <svg class="lavender-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22V10" stroke-linecap="round"/>
-                    <path d="M12 18C10 17 9 15 9 15" stroke-linecap="round"/>
-                    <path d="M12 16C14 15 15 13 15 13" stroke-linecap="round"/>
-                    <circle cx="12" cy="9" r="1.5" fill="#ffffff" stroke="none"/>
-                    <circle cx="10" cy="7" r="1.5" fill="#f3e8ff" stroke="none"/>
-                    <circle cx="14" cy="7" r="1.5" fill="#f3e8ff" stroke="none"/>
-                    <circle cx="12" cy="5" r="1.2" fill="#e9d5ff" stroke="none"/>
-                    <circle cx="10.5" cy="3.5" r="1.2" fill="#d8b4fe" stroke="none"/>
-                    <circle cx="13.5" cy="3.5" r="1.2" fill="#d8b4fe" stroke="none"/>
-                    <circle cx="12" cy="2" r="1" fill="#c084fc" stroke="none"/>
-                </svg>
-                <span>Open Invitation</span>
-            </button>
+    <!-- SISI KANAN (Active Scroll) -->
+    <div class="right-side">
+      
+      <!-- SECTION 1: SAMPUL COVER -->
+      <section id="cover-section">
+        
+        <!-- Tulisan THE WEDDING OF -->
+        <div class="text-title slow-come-in delay-1">THE WEDDING OF</div>
+        
+        <!-- Gambar Nama Pasangan -->
+        <img src="photo/revinagio.png" alt="Revin & Agio" class="img-names slow-come-in delay-2">
+        
+        <!-- Kepada Yth -->
+        <div class="text-to slow-come-in delay-3">Kepada Yth</div>
+        
+        <!-- Nama Tamu Undangan (Diambil dari URL Parameter ?to=) -->
+        <div id="guest-name" class="guest-name slow-come-in delay-4">Tamu Undangan</div>
+        
+        <!-- Teks Permohonan Maaf -->
+        <div class="text-apology slow-come-in delay-5">
+          Mohon maaf apabila ada kesalahan dalam penulisan nama atau gelar
         </div>
-    </section>
+        
+        <!-- Tombol Buka Undangan dengan Ornaments -->
+        <div class="btn-container slow-come-in delay-6">
+          <div class="lavender-line"></div>
+          <button class="btn-open" onclick="openInvitation()">Buka Undangan</button>
+        </div>
 
-    <!-- JavaScript Parameter URL ?to= -->
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const guestParam = urlParams.get('to');
+      </section>
 
-        if (guestParam) {
-            document.getElementById('guestName').innerText = guestParam;
-        }
+      <!-- SECTION 2: KONTEN UTAMA UNDANGAN (Tampil setelah dibuka) -->
+      <main class="main-content">
+        <h2>Acara Pernikahan</h2>
+        <p style="margin-top: 20px; color: #666; font-size: 14px;">
+          Selamat datang di halaman utama undangan kami...
+        </p>
+      </main>
 
-        function openInvitation() {
-            alert("Membuka Undangan...");
-        }
-    </script>
+    </div>
+  </div>
+
+  <script>
+    // 1. Mengambil parameter "to" dari URL untuk nama tamu undangan
+    function getGuestName() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const guestName = urlParams.get('to');
+      if (guestName) {
+        document.getElementById('guest-name').innerText = decodeURIComponent(guestName);
+      }
+    }
+
+    // 2. Fungsi untuk membuka undangan (geser sampul perlahan ke atas)
+    function openInvitation() {
+      const cover = document.getElementById('cover-section');
+      cover.classList.add('slide-up');
+
+      // Mengizinkan scroll penuh pada halaman setelah sampul terangkat
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 500);
+    }
+
+    // Jalankan pengambilan nama saat halaman selesai di-load
+    window.addEventListener('DOMContentLoaded', getGuestName);
+  </script>
+
 </body>
 </html>
