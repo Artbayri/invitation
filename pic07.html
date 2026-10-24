@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Revina & Gio</title>
+    <!-- Google Fonts: Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- IMPORT CUSTOM FONT --- */
+        @font-face {
+            font-family: 'Kindred';
+            src: url('font/Kindred-WpRM4.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* --- SECTION 1 (SAMPUL) --- */
+        #section-1 {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('background/pic07.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+            transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 1s ease;
+        }
+
+        /* State Saat Undangan Dibuka */
+        #section-1.opened {
+            transform: scale(0.8);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* --- ORNAMEN ATAS (TRIANGLE/ARC TIRE) --- */
+        .ornament-top {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 500px;
+            height: 120px;
+            z-index: 5;
+            pointer-events: none;
+            animation: topEnter 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards,
+                       topSway 4s ease-in-out infinite alternate 1.5s;
+            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        #section-1.opened .ornament-top {
+            transform: translate(-50%, -150%) scale(0.5);
+            opacity: 0;
+        }
+
+        .ornament-top svg {
+            width: 100%;
+            height: 100%;
+            fill: #d4af37; /* Warna emas senada wayang */
+            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.6));
+        }
+
+        /* --- KONTEN UTAMA --- */
+        .cover-content {
+            margin-top: 90px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wedding-title {
+            font-family: 'Lato', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            animation: textSpinEnter 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards;
+            transition: all 1s ease;
+        }
+
+        /* Efek Glass White dengan Refleksi untuk Nama Pengantin */
+        .couple-name {
+            font-family: 'Kindred', cursive, sans-serif;
+            font-size: 50px;
+            line-height: 1.2;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.4),
+                2px 2px 4px rgba(0, 0, 0, 0.6);
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(220,220,220,0.7) 50%, rgba(255,255,255,1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+            animation: textSpinEnter 1.6s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards;
+            transition: all 1s ease;
+        }
+
+        /* --- TAMU UNDANGAN & TOMBOL --- */
+        .guest-box {
+            margin-bottom: 70px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .txt-yth {
+            font-family: 'Lato', sans-serif;
+            font-size: 10px;
+            color: #ffffff;
+            animation: textSpinEnter 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards;
+            transition: all 1s ease;
+        }
+
+        .txt-guest-name {
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            animation: textSpinEnter 2s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards;
+            transition: all 1s ease;
+        }
+
+        .txt-note {
+            font-family: 'Lato', sans-serif;
+            font-size: 9px;
+            font-style: italic;
+            color: #ffffff;
+            opacity: 0.85;
+            max-width: 280px;
+            animation: textSpinEnter 2.2s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards;
+            transition: all 1s ease;
+        }
+
+        /* Tombol Glassy senada tema */
+        .btn-open {
+            margin-top: 15px;
+            padding: 12px 28px;
+            font-family: 'Lato', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            animation: textSpinEnter 2.4s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards,
+                       glassGlow 3s infinite alternate;
+            transition: all 0.4s ease;
+        }
+
+        .btn-open:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* --- WAYANG DI SUDUT BAWAH --- */
+        .wayang {
+            position: absolute;
+            bottom: -10px;
+            height: 180px; /* Ukuran menyesuaikan */
+            width: auto;
+            z-index: 4;
+            pointer-events: none;
+            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .wayang-left {
+            left: -10px;
+            transform-origin: bottom left;
+            animation: wayangLeftEnter 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards,
+                       wayangSway 3.5s ease-in-out infinite alternate 1.5s;
+        }
+
+        .wayang-right {
+            right: -10px;
+            transform: scaleX(-1); /* Mirror wayang kanan */
+            transform-origin: bottom right;
+            animation: wayangRightEnter 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards,
+                       wayangSwayFlip 3.5s ease-in-out infinite alternate 1.5s;
+        }
+
+        /* Animasi Out Wayang Saat Undangan Dibuka */
+        #section-1.opened .wayang-left {
+            transform: translate(-100%, 100%) scale(0.3) rotate(-45deg);
+            opacity: 0;
+        }
+
+        #section-1.opened .wayang-right {
+            transform: translate(100%, 100%) scaleX(-1) scale(0.3) rotate(45deg);
+            opacity: 0;
+        }
+
+        /* Animasi Out Teks Saat Undangan Dibuka */
+        #section-1.opened .text-anim {
+            animation: textSpinOut 0.8s forwards !important;
+        }
+
+        /* --- KEYFRAMES ANIMASI --- */
+
+        /* Animasi Teks Masuk: Spin & Bounce */
+        @keyframes textSpinEnter {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) rotate(12deg) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+        }
+
+        /* Animasi Teks Keluar: Reverse Spin */
+        @keyframes textSpinOut {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(40px) rotate(-12deg) scale(0.7);
+            }
+        }
+
+        /* Animasi Wayang Masuk */
+        @keyframes wayangLeftEnter {
+            0% {
+                opacity: 0;
+                transform: translateY(120px) scale(0.7);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes wayangRightEnter {
+            0% {
+                opacity: 0;
+                transform: translateY(120px) scaleX(-1) scale(0.7);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scaleX(-1) scale(1);
+            }
+        }
+
+        /* Animasi Wayang Bergoyang Loop */
+        @keyframes wayangSway {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(3deg) translateY(-2px); }
+            100% { transform: rotate(-2deg); }
+        }
+
+        @keyframes wayangSwayFlip {
+            0% { transform: scaleX(-1) rotate(0deg); }
+            50% { transform: scaleX(-1) rotate(3deg) translateY(-2px); }
+            100% { transform: scaleX(-1) rotate(-2deg); }
+        }
+
+        /* Animasi Ornamen Atas */
+        @keyframes topEnter {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -80px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @keyframes topSway {
+            0% { transform: translate(-50%, 0); }
+            100% { transform: translate(-50%, 5px); }
+        }
+
+        /* Animasi Kilau Glassy Tombol */
+        @keyframes glassGlow {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            }
+            100% {
+                box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SECTION 1 (SAMPUL) -->
+    <section id="section-1">
+
+        <!-- Frame/Tirai Tirai Adat Jawa Atas (SVG Ornamen Jawa) -->
+        <div class="ornament-top">
+            <svg viewBox="0 0 500 120" preserveAspectRatio="none">
+                <path d="M0,0 L500,0 L500,20 Q375,100 250,110 Q125,100 0,20 Z" />
+                <path d="M250,120 L230,95 L270,95 Z" fill="#b38f2a" />
+            </svg>
+        </div>
+
+        <!-- Judul & Nama Pengantin -->
+        <div class="cover-content">
+            <div class="wedding-title text-anim">THE WEDDING OF</div>
+            <div class="couple-name text-anim">Revina<br>Gio</div>
+        </div>
+
+        <!-- Nama Tamu Undangan & Tombol -->
+        <div class="guest-box">
+            <div class="txt-yth text-anim">Kepada Yth.</div>
+            <div class="txt-guest-name text-anim" id="guest-name">Tamu Undangan</div>
+            <div class="txt-note text-anim">mohon maaf apabila ada kesalahan dalam penulisan nama tamu atau gelar</div>
+            
+            <button class="btn-open text-anim" onclick="openInvitation()">Buka Undangan</button>
+        </div>
+
+        <!-- Ornamen Wayang Kiri & Kanan -->
+        <img src="background/wayang.png" alt="Wayang Left" class="wayang wayang-left">
+        <img src="background/wayang.png" alt="Wayang Right" class="wayang wayang-right">
+
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // 1. Ambil Parameter Nama Tamu dari URL (?to=Nama)
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestParam = urlParams.get('to');
+            
+            if (guestParam) {
+                document.getElementById('guest-name').innerText = decodeURIComponent(guestParam);
+            }
+        });
+
+        // 2. Fungsi Buka Undangan (Menjalankan Animasi Out)
+        function openInvitation() {
+            const section1 = document.getElementById('section-1');
+            
+            // Tambahkan kelas opened untuk memicu animasi out
+            section1.classList.add('opened');
+
+            // Opsional: Lanjut ke section berikutnya setelah animasi selesai (1.2 detik)
+            setTimeout(() => {
+                // section1.style.display = 'none'; // Buka komentar ini jika ingin menyembunyikan section 1 sepenuhnya
+                console.log("Undangan dibuka, lanjut ke Section 2...");
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
